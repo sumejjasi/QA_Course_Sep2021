@@ -47,4 +47,9 @@ context('Test suite title', () => {
     })
 });
 
+<<<<<<< HEAD
 //Merjem
+=======
+//Mukaddesa
+//Kanita
+>>>>>>> 8b66a5d209838cfe7b423db5c6f5f7b6b89a9424
