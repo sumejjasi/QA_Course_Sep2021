@@ -46,4 +46,5 @@ context('Test suite title', () => {
         //     .verify_user_is_logged_in()
     })
 });
+
 // Dzejna
