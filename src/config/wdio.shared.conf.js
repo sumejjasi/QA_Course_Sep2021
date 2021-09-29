@@ -9,7 +9,8 @@ exports.config = {
     webDriverType: 'chromedriver',
 
     specs: [
-          './src/specs/test-template.js'
+         // './src/specs/test-template.js',
+          './src/specs/add-user-spec.js',
     ],
 
     exclude: [

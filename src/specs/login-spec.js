@@ -1,10 +1,14 @@
 const ui = require('../pages/ui-spec');
 
-xcontext('Test suite title', () => {
+context('Login page tests', () => {
 
     it('Test case title', () => {
-        ui.template.navigate_to_login_page()
+
+        ui.login.navigate_to_login_page()
             .enter_credentials()
+            .click_Login_button()
             .verify_user_is_logged_in()
+
+
     })
 });
