@@ -70,6 +70,7 @@ export default class BasePage {
     };
 
     verifyPartialText(element, text) {
+        this.waitElementToBeVisible(element)
         expect(element.getText()).to.contain(text);
         return this;
     };
