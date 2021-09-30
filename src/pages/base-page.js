@@ -3,7 +3,8 @@ import {expect} from 'chai';
 
 let
     elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
-    elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]')
+    elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
+    toastMessage = e => browser.$('.noty_body')
 
 export default class BasePage {
 
@@ -15,6 +16,10 @@ export default class BasePage {
         return this;
     };
 
+    verify_toast_message(message) {
+        this.verifyText(toastMessage(), message)
+        return this;
+    }
 
     waitElementToDisappear(el) {
         if (el.isDisplayed() === true) {

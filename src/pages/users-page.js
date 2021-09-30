@@ -4,9 +4,7 @@ import BasePage from "./base-page";
 let
     createUserButton = e => browser.$('#add_button'),
     emailInputField = e => browser.$('#email'),
-    createUserConfirm = e => browser.$('.save_button'),
-    toastMesaage = e => browser.$('.noty_body')
-
+    createUserConfirm = e => browser.$('.save_button')
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -27,11 +25,6 @@ export default class UsersPage extends BasePage {
     click_confirm_create_user() {
         createUserConfirm().click()
 
-        return this;
-    }
-
-    verify_toast_message_for_newly_added_user() {
-        this.verifyText(toastMesaage(),'  User Added.' )
         return this;
     }
 

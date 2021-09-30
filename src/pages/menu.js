@@ -16,7 +16,7 @@ export default class Menu extends BasePage {
 
     // *************************** ACTIONS ***************************
 
-    click_giftcard_Button() {
+    click_Gift_Card() {
         giftCardLink().click();
         return this;
     }

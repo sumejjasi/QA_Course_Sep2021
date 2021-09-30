@@ -1,4 +1,5 @@
 const ui = require('../pages/ui-spec');
+const C = require('../utils/constants');
 
 context('Test suite title', () => {
 
@@ -10,6 +11,6 @@ context('Test suite title', () => {
         ui.users.click_add_user()
             .enter_email()
             .click_confirm_create_user()
-            .verify_toast_message_for_newly_added_user()
+            .verify_toast_message(C.toastMessages.users.userAdded)
     })
 });

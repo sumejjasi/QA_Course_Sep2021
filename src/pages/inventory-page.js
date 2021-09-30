@@ -5,8 +5,7 @@ const D = require('../utils/data');
 let
     createInventoryButton = e => browser.$('#add_button'),
     inventoryName = e => browser.$('#name'),
-    createItemButton = e => browser.$('.save_button'),
-    toastMessage = e => browser.$('.noty_body')
+    createItemButton = e => browser.$('.save_button')
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -38,8 +37,8 @@ export default class InventoryPage extends BasePage {
         return this;
     }
 
-    enter_Invertory_Name() {
-        this.enterValue(inventoryName(), D.randomNo+'Table');
+    enter_Invertory_Name(name) {
+        this.enterValue(inventoryName(), name);
         return this;
     }
 
@@ -48,8 +47,4 @@ export default class InventoryPage extends BasePage {
         return this;
     }
 
-    verify_Messsage_for_newly_Added_Inventory() {
-        this.verifyText(toastMessage(), '  Inventory Item Added.')
-        return this;
-    }
 }
