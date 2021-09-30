@@ -2,11 +2,10 @@ import BasePage from "./base-page";
 
 // *************************** ELEMENTS ***************************
 let
-    emailInput = e => browser.$('#username'),
-    passwordInput = e => browser.$('[name="password"]'),
-    loggedInMessage = e => browser.$('//*[@class="user-info"]/small'),
-    loggedInEmail = e => browser.$('#user_fullname'),
-    loginButton = e => browser.$('[type="submit"]')
+    someElementById = e => browser.$('#username'),
+    someElementByAttribute = e => browser.$('[name="password"]'),
+    someElementByClassName = e => browser.$('.className')
+
 // add comma at the end of the previous line before adding new element selectors
 
 export default class PageTemplate extends BasePage {
@@ -17,21 +16,18 @@ export default class PageTemplate extends BasePage {
 
     // *************************** ACTIONS ***************************
 
-    navigate_to_login_page() {
-        browser.url('https://login.rezgo.com/')
+    click_something() {
+        someElementById().click()
         return this;
     }
 
-    enter_credentials() {
-        emailInput().setValue('sumejja.s.i@gmail.com')
-        passwordInput().setValue('test1234')
-        loginButton().click()
+    enter_something() {
+        this.enterValue(someElementByAttribute(), 'some text');
         return this;
     }
 
-    verify_user_is_logged_in() {
-        this.verifyText(loggedInMessage(), 'Logged in as')
-        this.verifyText(loggedInEmail(), 'Sumejja Sljivic Ivojevc')
+    verify_something() {
+        this.verifyText(someElementByClassName(), 'some text')
         return this;
     }
 }
