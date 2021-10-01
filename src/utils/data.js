@@ -25,6 +25,7 @@ D.giftCard = {
         state : 'Canton Sarajevo',
         postal : '71000',
         phone : '000/333/444',
+
         email : 'sumejja.s.i@gmai.com',
     },
     cardDetails: {
@@ -39,8 +40,8 @@ D.contact = {
         firstName: 'Test First Name',
         lastName: 'Test Last Name',
         companyName: 'Test Company Name',
-        email: 'sumejja.s.i@gmail.com',
-        phone : '000/333/444',
+        email: D.getRandomNo()+'@gmail.com',
+        phone : D.getRandomNo(),
         source : 'Test Source',
         idNum : 'Test ID Num',
     },
@@ -48,7 +49,12 @@ D.contact = {
         address1 : 'Test Address 1',
         address2 : 'III/2',
         city : 'Sarajevo',
-    }
+        state: 'Kanton',
+        postal: 745754
+    },
+    notes: 'Test notes'
+
+
 
 }
 

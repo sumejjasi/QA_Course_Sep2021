@@ -23,6 +23,7 @@ let
 
 export default class ContactsPage extends BasePage {
 
+
     constructor() {
         super()
     }
@@ -47,6 +48,7 @@ export default class ContactsPage extends BasePage {
     enter_all_values(contactsObject) {
         this.enterValue(firstNameInput(), contactsObject.profile.firstName);
         this.enterValue(lastNameInput(), contactsObject.profile.lastName);
+        this.enterValue(companyNameInput(), contactsObject.profile.companyName);
         this.enterValue(emailInput(), contactsObject.profile.email);
         this.enterValue(phoneInput(), contactsObject.profile.phone);
         this.enterValue(sourceInput(), contactsObject.profile.source);
@@ -55,6 +57,9 @@ export default class ContactsPage extends BasePage {
         this.enterValue(address1Input(), contactsObject.address.address1);
         this.enterValue(address2Input(), contactsObject.address.address2);
         this.enterValue(cityInput(), contactsObject.address.city);
+        this.enterValue(stateInput(), contactsObject.address.state);
+        this.enterValue(postalInput(), contactsObject.address.postal);
+        this.enterValue(notesInput(), contactsObject.notes);
         return this;
     }
 
