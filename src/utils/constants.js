@@ -12,7 +12,8 @@ C = {
             cardAdded: '  Gift Card Added.'
         },
         inventory: {
-            itemAdded: '  Inventory Item Added.'
+            itemAdded: '  Inventory Item Added.',
+            existingItem: '  You are already using that item name on another item.'
         }
     }
 }

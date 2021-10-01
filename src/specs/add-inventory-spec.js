@@ -16,4 +16,16 @@ context('Inventory page tests', () => {
             .verify_toast_message(C.toastMessages.inventory.itemAdded)
     })
 
+ it('Verify that new inventory can NOT be added with existing item name', () => {
+        ui.login.navigate_to_login_page()
+            .enter_credentials()
+            .click_Login_button()
+
+        ui.menu.click_Inventory()
+        ui.inventory.click_Create_inventory()
+            .enter_Invertory_Name('test123')
+            .click_Create_Item_Button()
+            .verify_toast_message(C.toastMessages.inventory.existingItem)
+    })
+
 });
