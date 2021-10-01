@@ -37,8 +37,8 @@ export default class InventoryPage extends BasePage {
         return this;
     }
 
-    enter_Invertory_Name(name) {
-        this.enterValue(inventoryName(), name);
+    enter_Invertory_Name(txt) {
+        this.enterValue(inventoryName(), txt);
         return this;
     }
 

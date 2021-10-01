@@ -6,14 +6,13 @@ let C = exports;
 C = {
     toastMessages: {
         users: {
-            userAdded: '  User Added.'
+            userAdded: '  User Added.',
         },
         giftCard: {
             cardAdded: '  Gift Card Added.'
         },
         inventory: {
-            itemAdded: '  Inventory Item Added...',
-            existingItemName: '  You are already using that item name on another item...',
+            itemAdded: '  Inventory Item Added.'
         }
     }
 }
