@@ -14,6 +14,9 @@ C = {
         inventory: {
             itemAdded: '  Inventory Item Added.',
             existingItem: '  You are already using that item name on another item.'
+        },
+        contacts: {
+            contactAdded: '  Contact Added.'
         }
     }
 }

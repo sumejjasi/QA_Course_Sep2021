@@ -3,7 +3,6 @@ const C = require('../utils/constants');
 const D = require("../utils/data");
 
 context('Inventory page tests', () => {
-
     it('Verify that new inventory can be added with unique name', () => {
         ui.login.navigate_to_login_page()
             .enter_credentials()
