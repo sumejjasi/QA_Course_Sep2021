@@ -13,6 +13,9 @@ C = {
         },
         inventory: {
             itemAdded: '  Inventory Item Added.'
+        },
+        contacts: {
+            contactAdded: '  Contact Added.'
         }
     }
 }
