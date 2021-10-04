@@ -25,5 +25,6 @@ context('Test gift card', () => {
             .pause(10)
             .click_confirm_Button()
             .verify_toast_message(C.toastMessages.giftCard.cardAdded)
+            .verify_all_values(D.giftCard)
     })
 });

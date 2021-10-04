@@ -11,8 +11,9 @@ context('Contact page tests', () => {
 
         ui.menu.click_Contacts()
         ui.contacts.click_Create_Contact()
-            .enter_all_values()
+            .enter_all_values(D.contact)
             .click_Confirm_Create_Contact()
-            .verify_toast_message()
+            .verify_toast_message(C.toastMessages.contacts.contactAdded)
+            .verify_all_values(D.contact2)
     })
 });
