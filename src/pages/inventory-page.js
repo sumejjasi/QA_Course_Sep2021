@@ -7,6 +7,9 @@ let
     inventoryName = e => browser.$('#name'),
     createItemButton = e => browser.$('.save_button')
 
+     //inventoryArrow= e => browser.$('.arrow fal fa-angle-down')
+
+
 // add comma at the end of the previous line before adding new element selectors
 
 export default class InventoryPage extends BasePage {
@@ -47,4 +50,13 @@ export default class InventoryPage extends BasePage {
         return this;
     }
 
+
+
 }
+
+
+
+
+
+
+

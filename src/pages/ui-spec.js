@@ -6,6 +6,7 @@ import UsersPage from "./users-page";
 import GiftCardPage from "./gift-card-page";
 import InventoryPage from "./inventory-page";
 import ContactsPage from "./contacts-page";
+import ProvidersPage from "./providers-page";
 
 module.exports = {
     app: new BasePage(),
@@ -16,4 +17,6 @@ module.exports = {
     giftCard: new GiftCardPage(),
     inventory: new InventoryPage(),
     contacts: new ContactsPage(),
+    providers: new ProvidersPage(),
+
 }

@@ -54,7 +54,32 @@ D.contact = {
     },
     notes: 'Test notes'
 
+}
+D.providers = {
+        companyName: 'Test Company Name',
+        companyWebside: D.getRandomNo()+'test456@gmail.com',
+        description: 'Danas je divan dan',
+        tags:'Nedjelja',
 
+        information: {
+            streetAddress:D.getRandomNo()+'test789',
+            apartment:D.getRandomNo()+'test555',
+            city:'Sarajevo',
+            state:'Bosna',
+            postal:'71000',
+            phone:D.getRandomNo()+'456-456',
+            email:D.getRandomNo()+'test159@gmail.com',
+        },
+    accounting: {
+        account : D.getRandomNo()+'789',
+        commission : '70%',
+        sideCode: '101010',
+        glCode: '7777',
+        taxRate:'7895412',
+        terms:'Petak',
+        credit:'15',
+        otherCode:D.getRandomNo()+'14',
+    },
 
 }
 
