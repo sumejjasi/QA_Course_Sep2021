@@ -59,4 +59,13 @@ D.serviceProvider = {
     type: 'Product Supplier',
 }
 
+
+D.serviceProvider2 = {
+    company: 'Test Companyyyyy',
+    website: 'test website',
+    description: 'test description',
+    tag: 'test tag',
+    type: 'Product Supplier',
+}
+
 module.exports = D;

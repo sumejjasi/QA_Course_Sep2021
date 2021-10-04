@@ -31,18 +31,19 @@ export default class ServiceProvidersPage extends BasePage {
         return this;
     }
 
-    enter_all_values(serviceProviderObject) {
-        this.enterValue(companyName(), serviceProviderObject.company);
-        this.enterValue(websiteInput(), serviceProviderObject.website);
-        this.enterValue(descriptionInput(), serviceProviderObject.description);
-        this.enterValue(tagsInput(), serviceProviderObject.tag);
+    enter_all_values(object) {
+        this.enterValue(companyName(), object.company);
+       // this.enterValue(websiteInput(), object.website);
+        this.enterValue(descriptionInput(), object.description);
+        this.enterValue(tagsInput(), object.tag);
 
-        this.selectDropdownOption(typeDropdown(), serviceProviderObject.type);
+        this.selectDropdownOption(typeDropdown(), object.type);
         return this;
     }
 
     verify_all_values(object) {
-       this.waitElementToBeVisible(providerDetailsHeader())
+      /// this.waitElementToBeVisible(providerDetailsHeader())
+       this.waitElementToDisappear(confirmCreateProviderButton())
         this.verify_all_values_on_main_container(object)
         return this;
     }

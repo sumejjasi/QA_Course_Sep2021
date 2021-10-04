@@ -58,8 +58,7 @@ export default class BasePage {
         return this;
     };
 
-    verify_all_values_on_main_container(object, pageTitle) {
-      //  this.waitElementToDisappear(toastMessage())
+    verify_all_values_on_main_container(object) {
         this.verifyMultipleValuesOnOneElement(mainPageContainer(), object)
         return this;
     }
