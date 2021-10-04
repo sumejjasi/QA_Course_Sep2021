@@ -83,7 +83,7 @@ export default class ProvidersPage extends BasePage {
     }
 
     click_Confirm_Create_Provider() {
-        this.click_Confirm_Create_Provider().click()
+        confirmProviderButton().click()
         return this;
     }
 

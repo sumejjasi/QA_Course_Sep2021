@@ -19,7 +19,7 @@ C = {
             contactAdded: '  Contact Added.'
         },
         providers: {
-            providerAdded: '  Provided Added.'
+            providerAdded:   '  Provider Added.'
         }
 
     }
