@@ -13,7 +13,8 @@ exports.config = {
          // './src/specs/add-user-spec.js',
         //   './src/specs/add-inventory-spec.js',
         //  './src/specs/add-gift-card-spec.js',
-          './src/specs/add-contact-spec.js',
+        //   './src/specs/add-contact-spec.js',
+          './src/specs/add-provider-spec.js'
     ],
 
     exclude: [

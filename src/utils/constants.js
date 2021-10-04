@@ -17,7 +17,13 @@ C = {
         },
         contacts: {
             contactAdded: '  Contact Added.'
+        },
+
+        providers: {
+            providerAdded: '  Provider Added.'
+
         }
+
     }
 }
 

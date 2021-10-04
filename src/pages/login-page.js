@@ -33,6 +33,13 @@ export default class LoginPage extends BasePage {
         return this;
     }
 
+    login () {
+        this.navigate_to_login_page();
+        this.enter_credentials();
+        this.click_Login_button();
+        return this;
+    }
+
     verify_user_is_logged_in() {
         //this.verifyText(loggedInMessage(), 'Logged in as')
         this.verifyText(loggedInEmail(), 'Sumejja Sljivic Ivojevc')
