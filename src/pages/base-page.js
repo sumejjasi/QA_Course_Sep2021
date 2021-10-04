@@ -4,7 +4,11 @@ import {expect} from 'chai';
 let
     elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
-    toastMessage = e => browser.$('.noty_body')
+    toastMessage = e => browser.$('.noty_body'),
+    mainPageContainer = e => browser.$('.card_display'),
+    dropdownSearch = e => browser.$('.chosen-search-input'),
+    dropdownSearchInput = e => browser.$('//*[@class="chosen-search"]/input'),
+    dropdownOption = text => browser.$('//em[text()="' + text + '"]')
 
 export default class BasePage {
 
@@ -21,15 +25,67 @@ export default class BasePage {
         return this;
     }
 
-    waitElementToDisappear(el) {
-        if (el.isDisplayed() === true) {
-            el.waitForDisplayed({reverse: true});
+    verifyTextOnMultipleElements (elementValuePairs) {
+        let that = this;
+
+        elementValuePairs.forEach(function (arrayElement) {
+                if (arrayElement[1]) {
+                    that.verifyText(arrayElement[0], arrayElement[1]);
+                }
+        });
+        return this;
+    };
+
+    verifyMultipleValuesOnOneElement (mainContainer, obj) {
+
+        let that = this
+        const res = {};
+        function recurse(obj, current) {
+            for (const key in obj) {
+                let value = obj[key];
+                if(value != undefined) {
+                    if (value && typeof value === 'object') {
+                        recurse(value, key);
+                    } else {
+                        // Do your stuff here to var value
+                        res[key] = value;
+                        that.verifyText(mainContainer, res[key]);
+                    }
+                }
+            }
         }
+        recurse(obj);
+        return this;
+    };
+
+    verify_all_values_on_main_container(object, pageTitle) {
+      //  this.waitElementToDisappear(toastMessage())
+        this.verifyMultipleValuesOnOneElement(mainPageContainer(), object)
+        return this;
+    }
+
+    waitElementToDisappear(el) {
+        //if (el.isDisplayed() === true) {
+            el.waitForDisplayed({reverse: true});
+        //}
         return this;
     }
 
     waitElementToBeVisible(el) {
         el.waitForDisplayed({timeout: 30000});
+        return this;
+    }
+
+    //
+    // selectDropdownOption(el, option) {
+    //     el.selectByVisibleText(option)
+    //     return this;
+    // }
+
+    selectDropdownOption(el, option) {
+        el.click();
+        this.enterValue(dropdownSearchInput(), option)
+        this.waitAndClick(dropdownOption(option))
         return this;
     }
 
@@ -76,7 +132,7 @@ export default class BasePage {
 
     verifyPartialText(element, text) {
         this.waitElementToBeVisible(element)
-        expect(element.getText()).to.contain(text);
+        expect(JSON.stringify(element.getText())).to.contain(text);
         return this;
     };
 
