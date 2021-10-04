@@ -33,11 +33,11 @@ export default class ServiceProvidersPage extends BasePage {
 
     enter_all_values(object) {
         this.enterValue(companyName(), object.company);
-       // this.enterValue(websiteInput(), object.website);
+        this.enterValue(websiteInput(), object.website);
         this.enterValue(descriptionInput(), object.description);
         this.enterValue(tagsInput(), object.tag);
 
-        this.selectDropdownOption(typeDropdown(), object.type);
+        this.selectDropdownOption(typeDropdown(), object.type)
         return this;
     }
 

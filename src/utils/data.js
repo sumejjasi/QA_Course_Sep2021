@@ -56,9 +56,8 @@ D.serviceProvider = {
     website: 'test website',
     description: 'test description',
     tag: 'test tag',
-    type: 'Product Supplier',
+    type: 'Transport Provider',
 }
-
 
 D.serviceProvider2 = {
     company: 'Test Companyyyyy',
@@ -66,6 +65,14 @@ D.serviceProvider2 = {
     description: 'test description',
     tag: 'test tag',
     type: 'Product Supplier',
+}
+
+D.user = {
+   email: 'sumejja.s.i+' + D.getRandomNo()+ '@gmail.com',
+   username: D.getRandomNo(),
+   firstName: 'test firstName',
+   lastName: 'test lastName',
+   tag: 'test tag'
 }
 
 module.exports = D;

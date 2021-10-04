@@ -197,16 +197,18 @@ exports.setNewRandomString = function (length = 3) {
 };
 
 exports.getRandomNo = function (length) {
-    if (length) {
-        let randomChars = '0123456789';
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
-        }
-        return dateFormat(Date(), 'ddmmyy') + result;
-    } else {
-        return exports.randomNo;
-    }
+   // if (length) {
+   //      let randomChars = '0123456789';
+   //      let result = '';
+   //      for (let i = 0; i < length; i++) {
+   //          result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+   //      }
+   //      return dateFormat(Date(), 'ddmmyy') + result;
+
+    return Math.floor(1000 * Math.random() + 1).toString() + Date.now().toString().substring(-12);
+   // } else {
+   //     return exports.randomNo;
+   // }
 };
 
 exports.fetch_all_dropdown_values_and_convert_to_object_properties = function (dropdownSelector) {
