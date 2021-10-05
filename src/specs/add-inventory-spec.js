@@ -11,7 +11,10 @@ context('Inventory page tests', () => {
         ui.menu.click_Inventory()
         ui.inventory.click_Create_inventory()
             .enter_Invertory_Name(D.randomNo+'Table')
+            .upload_inventory_image('test-image.jpg')
             .click_Create_Item_Button()
             .verify_toast_message(C.toastMessages.inventory.itemAdded)
+
+            .pause(5)
     })
 });
