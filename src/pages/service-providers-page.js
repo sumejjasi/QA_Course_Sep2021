@@ -9,6 +9,7 @@ let
     descriptionInput = e => browser.$('[placeholder="Brief description or details"]'),
     tagsInput = e => browser.$$('[placeholder="Enter tags ..."]')[1],
     typeDropdown = e => browser.$('#type_chosen'),
+    countryInput = e => browser.$$('.chosen-container-single')[1],
     providerDetailsHeader = e => browser.$('.close_card_button')
 
 // add comma at the end of the previous line before adding new element selectors
@@ -37,7 +38,8 @@ export default class ServiceProvidersPage extends BasePage {
         this.enterValue(descriptionInput(), object.description);
         this.enterValue(tagsInput(), object.tag);
 
-        this.selectDropdownOption(typeDropdown(), object.type)
+        this.selectDropdownOption(1, object.type)
+        this.selectDropdownOption(2, object.country)
         return this;
     }
 

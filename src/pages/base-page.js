@@ -9,6 +9,10 @@ let
     dropdownSearch = e => browser.$('.chosen-search-input'),
     dropdownSearchInput = e => browser.$('//*[@class="chosen-search"]/input'),
     dropdownOption = text => browser.$('//em[text()="' + text + '"]')
+dropdownSearchInput = (dropdownNumber) => browser.$('//*[@class="chosen-search"]/input[position()=' + dropdownNumber + ']'),
+    dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
+    uploadContainer = e => browser.$('[type="file"]'),
+    dropdown = (dropdownNumber) => browser.$$('.chosen-container-single')[dropdownNumber - 1]
 
 export default class BasePage {
 
@@ -25,25 +29,26 @@ export default class BasePage {
         return this;
     }
 
-    verifyTextOnMultipleElements (elementValuePairs) {
+    verifyTextOnMultipleElements(elementValuePairs) {
         let that = this;
 
         elementValuePairs.forEach(function (arrayElement) {
-                if (arrayElement[1]) {
-                    that.verifyText(arrayElement[0], arrayElement[1]);
-                }
+            if (arrayElement[1]) {
+                that.verifyText(arrayElement[0], arrayElement[1]);
+            }
         });
         return this;
     };
 
-    verifyMultipleValuesOnOneElement (mainContainer, obj) {
+    verifyMultipleValuesOnOneElement(mainContainer, obj) {
 
         let that = this
         const res = {};
+
         function recurse(obj, current) {
             for (const key in obj) {
                 let value = obj[key];
-                if(value != undefined) {
+                if (value != undefined) {
                     if (value && typeof value === 'object') {
                         recurse(value, key);
                     } else {
@@ -54,6 +59,7 @@ export default class BasePage {
                 }
             }
         }
+
         recurse(obj);
         return this;
     };
@@ -65,7 +71,7 @@ export default class BasePage {
 
     waitElementToDisappear(el) {
         //if (el.isDisplayed() === true) {
-            el.waitForDisplayed({reverse: true});
+        el.waitForDisplayed({reverse: true});
         //}
         return this;
     }
@@ -81,9 +87,15 @@ export default class BasePage {
     //     return this;
     // }
 
-    selectDropdownOption(el, option) {
-        el.click();
-        this.enterValue(dropdownSearchInput(), option)
+
+    waitElementToBeVisible(el) {
+        el.waitForDisplayed({timeout: 30000});
+        return this;
+    }
+
+    selectDropdownOption(dropdownNumber, option) {
+        dropdown(dropdownNumber).click();
+        this.enterValue(dropdownSearchInput(dropdownNumber), option)
         this.waitAndClick(dropdownOption(option))
         return this;
     }
@@ -95,18 +107,17 @@ export default class BasePage {
 
     waitAndClick(el) {
         el.waitForDisplayed({timeout: 30000});
-       // el.waitForEnabled();
+        // el.waitForEnabled();
         el.click();
         return this;
     }
 
     click(text, isExactText = true) {
 
-        if (isExactText){
+        if (isExactText) {
             elementByText(text).waitForEnabled();
             elementByText(text).click();
-        }
-        else{
+        } else {
             elementByPartialText(text).waitForEnabled();
             elementByPartialText(text).click();
         }
@@ -166,4 +177,4 @@ export default class BasePage {
         });
         return this;
     };
-}
+};

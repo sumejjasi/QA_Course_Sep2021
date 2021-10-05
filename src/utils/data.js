@@ -57,6 +57,7 @@ D.serviceProvider = {
     description: 'test description',
     tag: 'test tag',
     type: 'Transport Provider',
+    country: 'Bosnia',
 }
 
 D.serviceProvider2 = {
