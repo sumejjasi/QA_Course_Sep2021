@@ -12,10 +12,10 @@ context('Service Provider Page', () => {
                 .click_Service_Providers()
             ui.serviceProviders.click_Create_Service_Provider()
                 .enter_all_values(D.serviceProvider)
-                .click_Confirm_Create_Service_Provider()
-                .verify_toast_message(C.toastMessages.serviceProvider.providerAdded)
-                .verify_all_values(D.serviceProvider)
-                .pause(5)
+                // .click_Confirm_Create_Service_Provider()
+                // .verify_toast_message(C.toastMessages.serviceProvider.providerAdded)
+                // .verify_all_values(D.serviceProvider)
+                // .pause(5)
         })
   // }
 });

@@ -5,6 +5,7 @@ const D = require('../utils/data');
 let
     createInventoryButton = e => browser.$('#add_button'),
     inventoryName = e => browser.$('#name'),
+     overviewInput = e => browser.$('[data-id="overview"]'),
     createItemButton = e => browser.$('.save_button'),
     // imageBox1 = e => browser.$$('.image-box')[0],
     // imageBox2 = e => browser.$$('.image-box')[1],
@@ -44,6 +45,15 @@ export default class InventoryPage extends BasePage {
 
     enter_Invertory_Name(txt) {
         this.enterValue(inventoryName(), txt);
+        return this;
+    }
+
+    enter_all_values(object) {
+        this.enterValue(inventoryName(), 'testtt');
+        this.pause(3)
+        browser.switchToFrame(1)
+        browser.executeScript("arguments[0].innerHTML = 'Set text using innerHTML'", text);)
+        this.enterValue(overviewInput(), 'test')
         return this;
     }
 
