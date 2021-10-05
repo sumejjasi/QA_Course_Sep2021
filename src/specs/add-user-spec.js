@@ -5,9 +5,7 @@ const D = require('../utils/data');
 context('Users page', () => {
 
     it('Verify that new user can be added with required value', () => {
-        ui.login.navigate_to_login_page()
-            .enter_credentials()
-            .click_Login_button()
+        ui.login.login_as(D.users.admin)
         ui.menu.click_Users()
         ui.users.click_add_user()
             .enter_email()
@@ -20,9 +18,7 @@ context('Users page', () => {
         it.only('Verify that new user can be added with all values', () => {
 
             D.user.username = D.getRandomNo();
-            ui.login.navigate_to_login_page()
-                .enter_credentials()
-                .click_Login_button()
+            ui.login.login_as(D.users.admin)
             ui.menu.click_Users()
             ui.users.click_add_user()
                 .enter_all_values(D.user)

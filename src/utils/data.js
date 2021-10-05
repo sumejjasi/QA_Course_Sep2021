@@ -11,6 +11,17 @@ D.getRandomNo = function () {
 
 D.randomNo = D.getRandomNo();
 
+D.users = {
+    admin: {
+        email: 'sumejja.s.i@gmail.com',
+        password: 'test1234'
+    },
+    regularUser: {
+        email: 'mediha@gmail.com',
+        password: 'test1234'
+    }
+}
+
 D.giftCard = {
     number: D.randomNo,
     firstName: 'Test First Name',
@@ -73,7 +84,8 @@ D.user = {
    username: D.getRandomNo(),
    firstName: 'test firstName',
    lastName: 'test lastName',
-   tag: 'test tag'
+   tag: 'test tag',
+   group: 'Booking Manager',
 }
 
 module.exports = D;

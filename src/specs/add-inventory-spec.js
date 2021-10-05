@@ -4,14 +4,16 @@ const D = require("../utils/data");
 
 context('Inventory page tests', () => {
     it('Verify that new inventory can be added with unique name', () => {
-        ui.login.navigate_to_login_page()
-            .enter_credentials()
-            .click_Login_button()
+        // ui.login.navigate_to_login_page()
+        //     .enter_credentials()
+        //     .click_Login_button()
+
+        ui.login.login_as(D.users.admin)
 
         ui.menu.click_Inventory()
         ui.inventory.click_Create_inventory()
             .enter_Invertory_Name(D.randomNo+'Table')
-            .upload_inventory_image('test-image.jpg')
+            .upload_multiple_images('test-image.jpg', 'test-image2.jfif')
             .click_Create_Item_Button()
             .verify_toast_message(C.toastMessages.inventory.itemAdded)
 

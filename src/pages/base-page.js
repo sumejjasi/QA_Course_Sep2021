@@ -4,11 +4,16 @@ const path = require('path');
 
 let
     elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
+    elementByTagAndText = (tag, text) => browser.$('//'+ tag +'[text()="' + text + '"]'),
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
     toastMessage = e => browser.$('.noty_body'),
     mainPageContainer = e => browser.$('.card_display'),
     dropdownSearch = e => browser.$('.chosen-search-input'),
-    dropdownSearchInput = e => browser.$('//*[@class="chosen-search"]/input'),
+    dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber-1],
+  //  dropdownSearchInput = e => browser.$('//*[@class="chosen-search"]/input'),
+ //   dropdownSearchInput = dropdownNumber => browser.$('//*[@class="chosen-search"][position()=' + dropdownNumber + ']/input'),
+    dropdownSearchInput = dropdownNumber => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
+   // dropdownSearchInput = index => browser.$('//*[@class="chosen-container-active"]/div[@class="chosen-drop"]/div[@class="chosen-search"]/input'),
     dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
     uploadContainer = e => browser.$('[type="file"]')
 
@@ -88,9 +93,9 @@ export default class BasePage {
     //     return this;
     // }
 
-    selectDropdownOption(el, option) {
-        el.click();
-        this.enterValue(dropdownSearchInput(), option)
+    selectDropdownOption(dropdownNumber, option) {
+        dropdown(dropdownNumber).click()
+        this.enterValue(dropdownSearchInput(dropdownNumber), option)
         this.waitAndClick(dropdownOption(option))
         return this;
     }
@@ -115,16 +120,16 @@ export default class BasePage {
         return this;
     }
 
-    click(text, isExactText = true) {
-
-        if (isExactText){
+    clickByText(text, tag) {
+        if (tag){
+            elementByTagAndText(tag, text).waitForEnabled();
+            elementByTagAndText(tag, text).click();
+        }
+        else{
             elementByText(text).waitForEnabled();
             elementByText(text).click();
         }
-        else{
-            elementByPartialText(text).waitForEnabled();
-            elementByPartialText(text).click();
-        }
+
         return this;
     }
 

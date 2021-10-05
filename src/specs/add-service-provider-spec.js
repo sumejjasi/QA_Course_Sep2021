@@ -4,12 +4,10 @@ const C = require('../utils/constants');
 
 context('Service Provider Page', () => {
 
-    for (var i = 0; i < 10; i++) {
+   // for (var i = 0; i < 10; i++) {
         it('Verify that new service provider can be added', () => {
 
-            ui.login.navigate_to_login_page()
-                .enter_credentials()
-                .click_Login_button()
+            ui.login.login_as(D.users.admin)
             ui.menu.click_Inventory()
                 .click_Service_Providers()
             ui.serviceProviders.click_Create_Service_Provider()
@@ -17,6 +15,7 @@ context('Service Provider Page', () => {
                 .click_Confirm_Create_Service_Provider()
                 .verify_toast_message(C.toastMessages.serviceProvider.providerAdded)
                 .verify_all_values(D.serviceProvider)
+                .pause(5)
         })
-   }
+  // }
 });

@@ -6,7 +6,11 @@ let
     createInventoryButton = e => browser.$('#add_button'),
     inventoryName = e => browser.$('#name'),
     createItemButton = e => browser.$('.save_button'),
-    imageBox = e => browser.$('.image-box')
+    // imageBox1 = e => browser.$$('.image-box')[0],
+    // imageBox2 = e => browser.$$('.image-box')[1],
+    imageBox1 = e => browser.$("//*[@class='image_path'][position()=1]"),
+    imageBox2 = e => browser.$("//*[@class='image_path move_handle'][position()=2]")
+    imageBox2 = e => browser.$("//*[@class='image_path move_handle'][position()=1]")
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -45,7 +49,16 @@ export default class InventoryPage extends BasePage {
 
     upload_inventory_image(filename) {
         this.upload_file(filename)
-        this.waitElementToBeVisible(imageBox())
+        this.waitElementToBeVisible(imageBox1())
+        return this;
+    }
+
+    upload_multiple_images(filename1, filename2) {
+        this.upload_file(filename1)
+        this.waitElementToBeVisible(imageBox1())
+
+        this.upload_file(filename2)
+        this.waitElementToBeVisible(imageBox2())
         return this;
     }
 
