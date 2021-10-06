@@ -10,10 +10,7 @@ let
     mainPageContainer = e => browser.$('.card_display'),
     dropdownSearch = e => browser.$('.chosen-search-input'),
     dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber-1],
-  //  dropdownSearchInput = e => browser.$('//*[@class="chosen-search"]/input'),
- //   dropdownSearchInput = dropdownNumber => browser.$('//*[@class="chosen-search"][position()=' + dropdownNumber + ']/input'),
-    dropdownSearchInput = dropdownNumber => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
-   // dropdownSearchInput = index => browser.$('//*[@class="chosen-container-active"]/div[@class="chosen-drop"]/div[@class="chosen-search"]/input'),
+    dropdownSearchInput = e => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
     dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
     uploadContainer = e => browser.$('[type="file"]')
 
@@ -95,7 +92,7 @@ export default class BasePage {
 
     selectDropdownOption(dropdownNumber, option) {
         dropdown(dropdownNumber).click()
-        this.enterValue(dropdownSearchInput(dropdownNumber), option)
+        this.enterValue(dropdownSearchInput(), option)
         this.waitAndClick(dropdownOption(option))
         return this;
     }
