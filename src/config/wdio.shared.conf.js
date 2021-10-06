@@ -10,11 +10,11 @@ exports.config = {
 
     specs: [
          // './src/specs/test-template.js',
-          './src/specs/add-user-spec.js',
-         // './src/specs/add-inventory-spec.js',
+          //'./src/specs/add-user-spec.js',
+          './src/specs/add-inventory-spec.js',
         //  './src/specs/add-gift-card-spec.js',
          // './src/specs/add-contact-spec.js',
-          './src/specs/add-service-provider-spec.js',
+         // './src/specs/add-service-provider-spec.js',
     ],
 
     exclude: [

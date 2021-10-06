@@ -5,7 +5,9 @@ const D = require('../utils/data');
 let
     createInventoryButton = e => browser.$('#add_button'),
     inventoryName = e => browser.$('#name'),
-    createItemButton = e => browser.$('.save_button')
+    createItemButton = e => browser.$('.save_button'),
+    imageBox1 = e => browser.$("//*[@class='image-box'][position()=1]"),
+    imageBox2= e => browser.$("//*[@class='image-box'][position()=2]")
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -31,6 +33,19 @@ export default class InventoryPage extends BasePage {
         this.verifyText(someElementByClassName(), 'some text')
         return this;
     }
+     upload_image(filename) {
+        this.upload_file(filename)
+         this.waitElementToBeVisible(imageBox())
+         return this;
+    }
+     upload_multiple_images(filename1, filename2) {
+        this.upload_file(filename1)
+         this.waitElementToBeVisible(imageBox1())
+         this.upload_file(filename2)
+          this.waitElementToBeVisible(imageBox2())
+         return this;
+    }
+
 
     click_Create_inventory() {
         createInventoryButton().click()

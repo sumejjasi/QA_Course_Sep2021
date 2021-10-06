@@ -15,7 +15,7 @@ context('Users page', () => {
             .verify_toast_message(C.toastMessages.users.userAdded)
     })
 
-    for (var i = 0; i < 10; i++) {
+    //for (var i = 0; i < 10; i++) {
 
         it.only('Verify that new user can be added with all values', () => {
 
@@ -26,9 +26,10 @@ context('Users page', () => {
             ui.menu.click_Users()
             ui.users.click_add_user()
                 .enter_all_values(D.user)
+                .upload_file('test-image.jpg')
                 .click_confirm_create_user()
                 .verify_toast_message(C.toastMessages.users.userAdded)
                 .verify_all_values(D.user)
         })
-    }
+   // }
 });
