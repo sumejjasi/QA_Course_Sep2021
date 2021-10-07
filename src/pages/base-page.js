@@ -29,6 +29,7 @@ export default class BasePage {
 
     verify_toast_message(message) {
         this.verifyText(toastMessage(), message)
+        toastMessage().click()
         return this;
     }
 
@@ -200,7 +201,7 @@ export default class BasePage {
         }
 
         let last_unread_email = D.unreadEmails[0];
-        expect(last_unread_email.from).to.contain(C.emailTemplates.from)
+        expect(last_unread_email.from).to.contain(emailTemplate.from)
         expect(last_unread_email.subject).to.include(emailTemplate.subject)
         expect(last_unread_email.body).to.include(emailTemplate.content)
 

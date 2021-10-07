@@ -33,7 +33,7 @@ D.giftCard = {
     number: D.randomNo,
     firstName: 'Test First Name',
     lastName: 'Test Last Name',
-    email: 'sumejja.s.i@gmail.com',
+    email: 'protractor.user2@gmail.com',
     billingSection: {
         firstName: 'Billing First Name',
         lastName: 'Billing Last Name',
