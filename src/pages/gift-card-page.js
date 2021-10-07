@@ -38,8 +38,8 @@ export default class GiftCardPage extends BasePage {
         return this;
     }
 
-    enter_gift_card_number() {
-        this.enterValue(numberInput(), D.randomNo + 'card');
+    enter_gift_card_number(object) {
+        this.enterValue(numberInput(),object.number);
         return this;
     }
 
@@ -76,5 +76,25 @@ export default class GiftCardPage extends BasePage {
         saveCreateGiftCard().click();
         return this;
     }
+
+    //Calling  method like this-
+    //  ui.giftCardDetails.enter_email(D.giftcard)
+    enter_email(object) {
+        this.waitElementToBeVisible(numberInput())
+        this.enterValue(emailInput_topSection(),object.email);
+        return this;
+    }
+
+
+
+
+    //Calling  method like this-
+    //  ui.giftCardDetails.enter_email(D.giftcard.email)
+    //enter_email(emailValue) {
+       // this.enterValue(emailInput_topSection(),emailValue);
+       // return this;
+    //})
+
+
 
 }
