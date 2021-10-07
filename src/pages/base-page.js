@@ -1,15 +1,18 @@
-import {assert} from 'chai';
+import {assert, use} from 'chai';
 import {expect} from 'chai';
+
 const path = require('path');
+const D = require('../utils/data')
+const C = require('../utils/constants')
 
 let
     elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
-    elementByTagAndText = (tag, text) => browser.$('//'+ tag +'[text()="' + text + '"]'),
+    elementByTagAndText = (tag, text) => browser.$('//' + tag + '[text()="' + text + '"]'),
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
     toastMessage = e => browser.$('.noty_body'),
-    mainPageContainer = e => browser.$('.card_display'),
+    mainContainer = e => browser.$('.card_display'),
     dropdownSearch = e => browser.$('.chosen-search-input'),
-    dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber-1],
+    dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber - 1],
     dropdownSearchInput = e => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
     dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
     uploadContainer = e => browser.$('[type="file"]')
@@ -29,7 +32,7 @@ export default class BasePage {
         return this;
     }
 
-    verifyTextOnMultipleElements (elementValuePairs) {
+    verifyTextOnMultipleElements(elementValuePairs) {
         let that = this;
 
         elementValuePairs.forEach(function (arrayElement) {
@@ -40,14 +43,15 @@ export default class BasePage {
         return this;
     };
 
-    verifyMultipleValuesOnOneElement (mainContainer, obj) {
+    verifyMultipleValuesOnOneElement(mainContainer, obj) {
 
         let that = this
         const res = {};
+
         function recurse(obj, current) {
             for (const key in obj) {
                 let value = obj[key];
-                if(value != undefined) {
+                if (value != undefined) {
                     if (value && typeof value === 'object') {
                         recurse(value, key);
                     } else {
@@ -58,12 +62,13 @@ export default class BasePage {
                 }
             }
         }
+
         recurse(obj);
         return this;
     };
 
     verify_all_values_on_main_container(object) {
-        this.verifyMultipleValuesOnOneElement(mainPageContainer(), object)
+        this.verifyMultipleValuesOnOneElement(mainContainer(), object)
         return this;
     }
 
@@ -84,12 +89,6 @@ export default class BasePage {
         return this;
     }
 
-    //
-    // selectDropdownOption(el, option) {
-    //     el.selectByVisibleText(option)
-    //     return this;
-    // }
-
     selectDropdownOption(dropdownNumber, option) {
         dropdown(dropdownNumber).click()
         this.enterValue(dropdownSearchInput(), option)
@@ -97,7 +96,7 @@ export default class BasePage {
         return this;
     }
 
-    upload_file(fileName){
+    upload_file(fileName) {
         const filePath = path.join(__dirname, '../utils/' + fileName);
 
         uploadContainer().waitForExist();
@@ -118,11 +117,10 @@ export default class BasePage {
     }
 
     clickByText(text, tag) {
-        if (tag){
+        if (tag) {
             elementByTagAndText(tag, text).waitForEnabled();
             elementByTagAndText(tag, text).click();
-        }
-        else{
+        } else {
             elementByText(text).waitForEnabled();
             elementByText(text).click();
         }
@@ -157,15 +155,15 @@ export default class BasePage {
         return this;
     };
 
-    // verifyTextIsVisibleOnMainContainer(text) {
-    //     expect(mainContainer().getText()).to.contain(text);
-    //     return this;
-    // };
-    //
-    // verifyTextIsNotVisibleOnMainContainer(text, androidWebContext = true, iOSWebContext = true) {
-    //     expect(mainContainer().getText()).to.not.contain(text);
-    //     return this;
-    // };
+    verifyTextIsVisibleOnMainContainer(text) {
+        expect(mainContainer().getText()).to.contain(text);
+        return this;
+    };
+
+    verifyTextIsNotVisibleOnMainContainer(text, androidWebContext = true, iOSWebContext = true) {
+        expect(mainContainer().getText()).to.not.contain(text);
+        return this;
+    };
 
     verifyTextOnMultipleElements(valuesOrElementValuePairs) {
         let that = this;
@@ -182,5 +180,39 @@ export default class BasePage {
             }
         });
         return this;
+    };
+
+    markAllEmailsAsRead(emailAccount) {
+        browser.fetchGmailUnseenMails(emailAccount.email, emailAccount.password)
+    }
+
+    get_text_between_two_values(wholeText, firstValue, secondValue) {
+        return wholeText.match(firstValue + "(.*)" + secondValue)[1];
+    }
+
+    verify_email(emailAccount, emailTemplate) {
+
+        for (let i = 0; i < 15; i++) {
+            if (!D.unreadEmails[0]) {
+                this.pause(5)
+                browser.fetchGmailUnseenMails(emailAccount.email, emailAccount.password)
+            }
+        }
+
+        let last_unread_email = D.unreadEmails[0];
+        expect(last_unread_email.from).to.contain(C.emailTemplates.from)
+        expect(last_unread_email.subject).to.include(emailTemplate.subject)
+        expect(last_unread_email.body).to.include(emailTemplate.content)
+
+
+
+        //
+        // let username = this.get_text_between_two_values(last_unread_email.body, 'Your username is ', '\\r\\n Your password is')
+        //
+        // console.log('USERNAME IS ' + username)
+        //D.verificationCode = CODE;
+
+        // console.log(last_unread_email.body)
+        // console.log('**************** Verification code is ____' + CODE)
     };
 }

@@ -1,5 +1,6 @@
 require('@wdio/allure-reporter')
 const appiumController = require("appium-controller");
+const C = require('../utils/commands')
 
 exports.config = {
 
@@ -10,11 +11,11 @@ exports.config = {
 
     specs: [
          // './src/specs/test-template.js',
-         // './src/specs/add-user-spec.js',
+          './src/specs/add-user-spec.js',
         // './src/specs/add-inventory-spec.js',
         //  './src/specs/add-gift-card-spec.js',
          // './src/specs/add-contact-spec.js',
-          './src/specs/add-service-provider-spec.js',
+          //'./src/specs/add-service-provider-spec.js',
     ],
 
     exclude: [
@@ -35,6 +36,7 @@ exports.config = {
     },
 
     before: function (capabilities, specs) {
+        C.commands();
     },
 
     onComplete : function (){

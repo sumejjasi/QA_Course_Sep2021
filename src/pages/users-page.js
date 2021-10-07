@@ -9,12 +9,7 @@ let
     lastNameInput = e => browser.$('[placeholder="Last Name"]'),
     numInput = e => browser.$('[placeholder="Employee number, etc."]'),
     tagsInput = e => browser.$$('[placeholder="Enter tags ..."]')[1],
-    createUserConfirm = e => browser.$('.save_button'),
-    groupButton = e => browser.$('#access_button'),
-    useThisGroupButton = e => browser.$('#set_level_button'),
-    //bookingManager = e => browser.$('#Booking+Manager')
-    bookingManager = e => browser.$$('.action-row')[2]
-
+    createUserConfirm = e => browser.$('.save_button')
 // add comma at the end of the previous line before adding new element selectors
 
 export default class UsersPage extends BasePage {
@@ -40,15 +35,16 @@ export default class UsersPage extends BasePage {
         return this;
     }
 
-    select_group(group) {
-        groupButton().click()
-        browser.switchToFrame(0);
-        this.clickByText(group)
-        useThisGroupButton().click()
-        this.pause(2)
-        browser.switchToParentFrame();
-        return this;
-    }
+    // select_group(group) {
+    //     groupButton().click()
+    //     browser.switchToFrame(0);
+    //     this.clickByText(group)
+    //     useThisGroupButton().click()
+    //     browser.switchToParentFrame();
+    //     return this;
+    // }
+
+
 
     enter_all_values(object) {
         this.enterValue(emailInputField(), object.email)
@@ -56,11 +52,14 @@ export default class UsersPage extends BasePage {
         this.enterValue(firstNameInput(), object.firstName)
         this.enterValue(lastNameInput(), object.lastName)
         this.enterValue(tagsInput(), object.tag)
-        this.select_group(object.group)
+
         return this;
     }
 
+
+
     verify_all_values(object) {
+        this.waitElementToDisappear(usernameInput())
         this.verify_all_values_on_main_container(object)
         return this;
     }

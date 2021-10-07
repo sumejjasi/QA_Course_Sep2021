@@ -11,6 +11,13 @@ D.getRandomNo = function () {
 
 D.randomNo = D.getRandomNo();
 
+D.gmailAccount = {
+    email: 'protractor.user2@gmail.com',
+    password: 'Qapps2021.',
+}
+
+D.unreadEmails = []
+
 D.users = {
     admin: {
         email: 'sumejja.s.i@gmail.com',
@@ -80,12 +87,12 @@ D.serviceProvider2 = {
 }
 
 D.user = {
-   email: 'sumejja.s.i+' + D.getRandomNo()+ '@gmail.com',
+   email: 'protractor.user2+' + D.getRandomNo()+ '@gmail.com',
    username: D.getRandomNo(),
    firstName: 'test firstName',
    lastName: 'test lastName',
    tag: 'test tag',
-   group: 'Booking Manager',
+ //  groupName: 'Booking Manager',
 }
 
 module.exports = D;

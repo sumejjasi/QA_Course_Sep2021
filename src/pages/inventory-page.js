@@ -52,7 +52,7 @@ export default class InventoryPage extends BasePage {
         this.enterValue(inventoryName(), 'testtt');
         this.pause(3)
         browser.switchToFrame(1)
-        browser.executeScript("arguments[0].innerHTML = 'Set text using innerHTML'", text);)
+        browser.executeScript("arguments[0].innerHTML = 'Set text using innerHTML'", text)
         this.enterValue(overviewInput(), 'test')
         return this;
     }
