@@ -36,8 +36,8 @@ export default class MerchandisePage extends BasePage {
     enter_all_values(object) {
         this.enterValue(itemInput(), object.item);
         this.enterValue(tagsInput(), object.tags);
-        this.selectDropdownOption(1,object.visibility);
-        this.selectDropdownOption(2,object.provided);
+        this.selectDropdownOption(1,object.visibility, false);
+        this.selectDropdownOption(2,object.provided, false);
         return this;
     }
 

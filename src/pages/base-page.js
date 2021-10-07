@@ -14,7 +14,8 @@ let
     dropdownSearch = e => browser.$('.chosen-search-input'),
     dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber - 1],
     dropdownSearchInput = e => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
-    dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
+    dropdownOptionUnderlined = text => browser.$('//em[text()="' + text + '"]'),
+    dropdownOption = text => browser.$('//li[text()="' + text + '"]'),
     uploadContainer = e => browser.$('[type="file"]')
 
 export default class BasePage {
@@ -90,10 +91,16 @@ export default class BasePage {
         return this;
     }
 
-    selectDropdownOption(dropdownNumber, option) {
+    selectDropdownOption(dropdownNumber, option, withSearch = true) {
         dropdown(dropdownNumber).click()
-        this.enterValue(dropdownSearchInput(), option)
-        this.waitAndClick(dropdownOption(option))
+
+        if(withSearch){
+            this.enterValue(dropdownSearchInput(), option)
+            this.waitAndClick(dropdownOptionUnderlined(option))
+        }
+        else{
+            this.waitAndClick(dropdownOption(option))
+        }
         return this;
     }
 
