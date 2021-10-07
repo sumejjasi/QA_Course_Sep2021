@@ -22,9 +22,9 @@ export default class LoginPage extends BasePage {
         return this;
     }
 
-    enter_credentials() {
-        emailInput().setValue('sumejja.s.i@gmail.com')
-        passwordInput().setValue('test1234')
+    enter_credentials(object) {
+        emailInput().setValue(object.email)
+        passwordInput().setValue(object.password)
         return this;
     }
 
@@ -36,6 +36,13 @@ export default class LoginPage extends BasePage {
     verify_user_is_logged_in() {
         //this.verifyText(loggedInMessage(), 'Logged in as')
         this.verifyText(loggedInEmail(), 'Sumejja Sljivic Ivojevc')
+        return this;
+    }
+
+    login_as(object) {
+       this.navigate_to_login_page()
+           .enter_credentials(object)
+           .click_Login_button()
         return this;
     }
 }

@@ -17,7 +17,8 @@ let
     cityInput = e => browser.$('[placeholder="City Name"]'),
     stateInput = e => browser.$('[placeholder="State or Province Code"]'),
     postalInput = e => browser.$('[placeholder="Zip or Postal Code"]'),
-    notesInput = e => browser.$('[name="notes"]')
+    notesInput = e => browser.$('[name="notes"]'),
+    mainContainer = e => browser.$('.card_display')
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -63,8 +64,4 @@ export default class ContactsPage extends BasePage {
         return this;
     }
 
-    verify_something() {
-        this.verifyText(someElementByClassName(), 'some text')
-        return this;
-    }
 }

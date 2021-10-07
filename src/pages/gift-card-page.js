@@ -7,12 +7,12 @@ let
     createGiftCardButton = e => browser.$('#add_button'),
     numberInput = e => browser.$('#card'),
     saveCreateGiftCard = e => browser.$('.save_button'),
-    firstName_topSection = e => browser.$$('[placeholder="First Name"]')[0], // first field
-    firstName_billingSection = e => browser.$$('[placeholder="First Name"]')[1], // second field
-    lastName_topSection = e => browser.$$('[placeholder="Last Name"]')[0], // first field
-    lastName_billingSection = e => browser.$$('[placeholder="Last Name"]')[1], // second field
-    emailInput_topSection = e => browser.$$('[placeholder="Email Address"]')[0],
-    emailInput_billingSection = e => browser.$$('[placeholder="Email Address"]')[1],
+    firstName_topSection = e => browser.$('#first_name'),
+    firstName_billingSection = e => browser.$('[name="billing_first_name"]'),
+    lastName_topSection = e => browser.$('#last_name'),
+    lastName_billingSection = e => browser.$('[name="billing_last_name"]'),
+   emailInput_topSection = e => browser.$('#email'),
+    emailInput_billingSection = e => browser.$('[name="billing_email"]'),
     address1Input = e => browser.$('[placeholder="Street Address"]'),
     address2Input = e => browser.$('[placeholder="Apartment or Unit Number"]'),
     cityNameInput = e => browser.$('[placeholder="City Name"]'),
@@ -40,6 +40,11 @@ export default class GiftCardPage extends BasePage {
 
     enter_gift_card_number() {
         this.enterValue(numberInput(), D.randomNo + 'card');
+        return this;
+    }
+
+    enter_email(emailValue) {
+        this.enterValue(emailInput_topSection(), emailValue)
         return this;
     }
 

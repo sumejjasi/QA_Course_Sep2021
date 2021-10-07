@@ -11,22 +11,39 @@ D.getRandomNo = function () {
 
 D.randomNo = D.getRandomNo();
 
+D.gmailAccount = {
+    email: 'protractor.user2@gmail.com',
+    password: 'Qapps2021.',
+}
+
+D.unreadEmails = []
+
+D.users = {
+    admin: {
+        email: 'sumejja.s.i@gmail.com',
+        password: 'test1234'
+    },
+    regularUser: {
+        email: 'mediha@gmail.com',
+        password: 'test1234'
+    }
+}
+
 D.giftCard = {
     number: D.randomNo,
     firstName: 'Test First Name',
     lastName: 'Test Last Name',
-    email: 'sumejja.s.i@gmail.com',
-    billingSection : {
-        firstName : 'Billing First Name',
-        lastName : 'Billing Last Name',
-        address1 : 'Test Address 1',
-        address2 : 'III/2',
-        city : 'Sarajevo',
-        state : 'Canton Sarajevo',
-        postal : '71000',
-        phone : '000/333/444',
-
-        email : 'sumejja.s.i@gmai.com',
+    email: 'protractor.user2@gmail.com',
+    billingSection: {
+        firstName: 'Billing First Name',
+        lastName: 'Billing Last Name',
+        address1: 'Test Address 1',
+        address2: 'III/2',
+        city: 'Sarajevo',
+        state: 'Canton Sarajevo',
+        postal: '71000',
+        phone: '000/333/444',
+        email: 'sumejja.s.i@gmai.com',
     },
     cardDetails: {
         cardValue: 'test card value',
@@ -40,22 +57,42 @@ D.contact = {
         firstName: 'Test First Name',
         lastName: 'Test Last Name',
         companyName: 'Test Company Name',
-        email: D.getRandomNo()+'@gmail.com',
-        phone : D.getRandomNo(),
-        source : 'Test Source',
-        idNum : 'Test ID Num',
+        email: D.randomNo + '@gmail.com',
+        phone: D.randomNo,
+        source: 'Test Source',
+        idNum: 'Test ID Num',
     },
     address: {
-        address1 : 'Test Address 1',
-        address2 : 'III/2',
-        city : 'Sarajevo',
-        state: 'Kanton',
-        postal: 745754
-    },
-    notes: 'Test notes'
+        address1: 'Test Address 1',
+        address2: 'III/2',
+        city: 'Sarajevo',
+    }
+}
 
+D.serviceProvider = {
+    company: 'Test Company',
+    website: 'test website',
+    description: 'test description',
+    tag: 'test tag',
+    type: 'Transport Provider',
+    country: 'Bosnia',
+}
 
+D.serviceProvider2 = {
+    company: 'Test Companyyyyy',
+    website: 'test website',
+    description: 'test description',
+    tag: 'test tag',
+    type: 'Product Supplier',
+}
 
+D.user = {
+   email: 'protractor.user2+' + D.getRandomNo()+ '@gmail.com',
+   username: D.getRandomNo(),
+   firstName: 'test firstName',
+   lastName: 'test lastName',
+   tag: 'test tag',
+ //  groupName: 'Booking Manager',
 }
 
 module.exports = D;

@@ -1,8 +1,8 @@
 {
-  "name": "sapphire-fitness-e2e-tests",
-  "version": "2.0.2",
-  "description": "Automated Test Framework for Sapphire Fitness apps",
-  "author": "Sumejja Sljivic",
+  "name": "rezgo-e2e-tests",
+  "version": "1.0.0",
+  "description": "Automated Test Framework for Rezgo App",
+  "author": "Sumejja Sljivic Ivojevic",
   "scripts": {
     "e2e-test": "wdio src/config/wdio.local.conf.js",
     "allure:history": "mkdir -p allure-report/history src/reports/allure-results/history && cp -a allure-report/history src/reports/allure-results/",
