@@ -1,6 +1,6 @@
 const ui = require('../pages/ui-spec');
-const C = require('../utils/constants');
 const D = require('../utils/data');
+const C = require('../utils/constants');
 
 context('Test gift card', () => {
 
@@ -20,6 +20,18 @@ context('Test gift card', () => {
             .enter_all_values(D.giftCard)
             .click_confirm_Button()
             .verify_toast_message(C.toastMessages.giftCard.cardAdded)
-            .verify_all_values(D.giftCard)
+    })
+
+    it('Verify that gift card can be sent to the user', () => {
+        ui.login.login_as(D.users.admin)
+        ui.menu.click_Gift_Card()
+        ui.giftCard.click_Create_gift_card()
+            .enter_email(D.giftCard.email)
+            .click_confirm_Button()
+            .verify_toast_message(C.toastMessages.giftCard.cardAdded)
+        ui.giftCardDetails.click_Send_Card()
+            .complete_Send_Gift_Card()
+            .verify_toast_message(C.toastMessages.giftCard.cardSent)
+            .verify_email(D.gmailAccount, C.emailTemplates.giftCardCreated)
     })
 });
