@@ -37,6 +37,12 @@ C.emailTemplates = {
         content: 'Here is your gift card.'
     }
 }
+    C.merchandiseTemplate = {
+        merchandiseCreated: {
+            message: `Merchandise Added.`,
+        }
+    }
+
 
 
 module.exports = C;

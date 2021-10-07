@@ -95,4 +95,11 @@ D.user = {
  //  groupName: 'Booking Manager',
 }
 
+D.merchandise = {
+    item: 'desk',
+    tags: 'test',
+    visibility: 'Available Everywhere',
+    provided: 'Automation Test (Address 2)'
+}
+
 module.exports = D;

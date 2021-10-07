@@ -6,7 +6,8 @@ let
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
-    serviceProvidersLink = e => browser.$('[href="/providers/"]')
+    serviceProvidersLink = e => browser.$('[href="/providers/"]'),
+    merchandiseLink = e => browser.$('[href="/merchandise/"]')
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -40,6 +41,11 @@ export default class Menu extends BasePage {
 
     click_Service_Providers() {
         serviceProvidersLink().click();
+        return this;
+    }
+
+    click_Merchandise() {
+        merchandiseLink().click();
         return this;
     }
 }
