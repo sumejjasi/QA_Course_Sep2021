@@ -13,7 +13,7 @@ context('Test gift card', () => {
             .verify_toast_message(C.toastMessages.giftCard.cardAdded)
     })
 
-    it.only('Verify that gift card can be added with all values', () => {
+    it('Verify that gift card can be added with all values', () => {
         ui.login.login_as(D.users.admin)
         ui.menu.click_Gift_Card()
         ui.giftCard.click_Create_gift_card()
@@ -21,5 +21,18 @@ context('Test gift card', () => {
             .click_confirm_Button()
             .verify_toast_message(C.toastMessages.giftCard.cardAdded)
             .verify_all_values(D.giftCard)
+    })
+
+    it.only('Verify that gift card can be sent to the user', () => {
+        ui.login.login_as(D.users.admin)
+        ui.menu.click_Gift_Card()
+        ui.giftCard.click_Create_gift_card()
+            .enter_email(D.giftCard.email)
+            .click_confirm_Button()
+            .verify_toast_message(C.toastMessages.giftCard.cardAdded)
+        ui.giftCardDetails.send_card()
+            .verify_toast_message(C.toastMessages.giftCard.cardSent)
+            .verify_email(D.gmailAccount, C.emailTemplates.giftCardCreated)
+
     })
 });

@@ -4,7 +4,7 @@ const D = require('../utils/data');
 
 context('Users page', () => {
 
-    before ( function () {
+    before(function () {
         ui.app.markAllEmailsAsRead(D.gmailAccount)
     })
 
@@ -28,5 +28,9 @@ context('Users page', () => {
             .click_confirm_create_user()
             .verify_toast_message(C.toastMessages.users.userAdded)
             .verify_all_values(D.user)
+            .verify_email(D.gmailAccount, C.emailTemplates.userAccountCreated)
+
+
+
     })
 });

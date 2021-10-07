@@ -43,6 +43,12 @@ export default class GiftCardPage extends BasePage {
         return this;
     }
 
+    enter_email(email) {
+        this.waitElementToBeVisible( address1Input())
+        emailInput_topSection().setValue(email)
+        return this;
+    }
+
     enter_all_values(giftCardObject) {
         this.enterValue(numberInput(), giftCardObject.number)
         this.enterValue(firstName_topSection(), giftCardObject.firstName)
