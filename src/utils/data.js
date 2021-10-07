@@ -85,7 +85,7 @@ D.user = {
    firstName: 'test firstName',
    lastName: 'test lastName',
    tag: 'test tag',
-   group: 'Booking Manager',
+   groupName: 'Booking Manager',
 }
 
 module.exports = D;

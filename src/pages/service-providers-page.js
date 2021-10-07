@@ -37,6 +37,8 @@ export default class ServiceProvidersPage extends BasePage {
         this.enterValue(websiteInput(), object.website);
         this.enterValue(descriptionInput(), object.description);
         this.enterValue(tagsInput(), object.tag);
+        this.selectDropdownOption(1,object.type)
+        this.selectDropdownOption(2,object.country)
 
         return this;
     }
