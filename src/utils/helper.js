@@ -1,5 +1,6 @@
 
 /* DATE FORMAT functions */
+const D = require('./data');
 const C = require('./constants');
 const dateFormat = (function () {
     const token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g;
