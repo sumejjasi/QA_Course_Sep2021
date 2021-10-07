@@ -26,7 +26,7 @@ C = {
 C.emailTemplates = {
     from: `Rezgo Notifications <notifications@rezgo.com>`,
     userAccountCreated: {
-        subject: 'A Rezgo user account has been created for you...',
+        subject: 'A Rezgo user account has been created for you',
         content: 'A Rezgo user account has been created for you for QA_PRO.'
     }
 }
