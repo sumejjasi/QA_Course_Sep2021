@@ -11,7 +11,9 @@ exports.commands = function () {
                 host: 'imap.gmail.com',
                 port: 993,
                 tls: true,
-                tlsOptions: {servername: 'imap.gmail.com'},
+                tlsOptions: {servername: 'imap.gmail.com',
+                    rejectUnauthorized:false
+                },
                 authTimeout: 20000
             }
         };
