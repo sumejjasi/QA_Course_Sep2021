@@ -56,8 +56,6 @@ export default class UsersPage extends BasePage {
         return this;
     }
 
-
-
     verify_all_values(object) {
         this.waitElementToDisappear(usernameInput())
         this.verify_all_values_on_main_container(object)

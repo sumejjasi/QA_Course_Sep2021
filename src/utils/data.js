@@ -98,7 +98,7 @@ D.user = {
 D.merchandise = {
     item: 'desk',
     tags: 'test',
-    visibility: 'Available Everywhere',
+    visibility: 'Available everywhere',   // this will become 'Available Everywhere' on runtime
     provided: 'Automation Test (Address 2)'
 }
 

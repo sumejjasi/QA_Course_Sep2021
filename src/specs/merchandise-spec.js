@@ -4,7 +4,7 @@ const C = require('../utils/constants');
 
 context('Test suite title', () => {
 
-    it('verify thaht user can be added new merchandise', () => {
+    it('verify that user can be added new merchandise', () => {
         ui.login.login_as(D.users.admin)
         ui.menu.click_Merchandise()
         ui.merchandise.click_Merchandise_Creat()
@@ -12,5 +12,6 @@ context('Test suite title', () => {
             .upload_merchandise_image('sea.jfif')
             .click_Create_Merchandise()
             .verify_toast_message(C.toastMessages.merchandise.merchandiseCreated)
+            .verify_all_values(D.merchandise)
     })
 });

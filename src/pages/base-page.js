@@ -91,7 +91,17 @@ export default class BasePage {
         return this;
     }
 
+    titleCase(str) {
+        str = str.split(' ');
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join(' ');
+    }
+
     selectDropdownOption(dropdownNumber, option, withSearch = true) {
+
+        option = this.titleCase(option)
         dropdown(dropdownNumber).click()
 
         if(withSearch){

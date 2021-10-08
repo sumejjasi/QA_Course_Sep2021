@@ -51,6 +51,12 @@ export default class MerchandisePage extends BasePage {
         return this;
     }
 
+    verify_all_values(object) {
+        this.waitElementToDisappear(itemInput())
+        this.verify_all_values_on_main_container(object)
+        return this;
+    }
+
     verify_something() {
         this.verifyText(someElementByClassName(), 'some text')
         return this;

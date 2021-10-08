@@ -23,7 +23,7 @@ C = {
             contactAdded: 'Contact Added.'
         },
         merchandise: {
-            merchandiseCreated: 'Merchandise Added.`'
+            merchandiseCreated: 'Merchandise Added.'
         }
     }
 }
