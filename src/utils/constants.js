@@ -21,6 +21,9 @@ C = {
         },
         contacts: {
             contactAdded: 'Contact Added.'
+        },
+        merchandise: {
+            merchandiseCreated: 'Merchandise Added.`'
         }
     }
 }
@@ -37,11 +40,6 @@ C.emailTemplates = {
         content: 'Here is your gift card.'
     }
 }
-    C.merchandiseTemplate = {
-        merchandiseCreated: {
-            message: `Merchandise Added.`,
-        }
-    }
 
 
 
