@@ -29,5 +29,8 @@ context('Users page', () => {
             .verify_toast_message(C.toastMessages.users.userAdded)
             .verify_all_values(D.user)
             .verify_email_and_store_values(D.gmailAccount, C.emailTemplates.userAccountCreated)
+        ui.menu.click_Log_Out()
+        ui.login.login_as(D.user)
+            .verify_user_is_logged_in(D.user)
     })
 });

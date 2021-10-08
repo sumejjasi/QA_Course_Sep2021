@@ -69,7 +69,8 @@ export default class UsersPage extends BasePage {
 
         let last_unread_email = D.unreadEmails[0];
 
-       D.user.username = this.get_text_between_two_values(last_unread_email.body, 'Your username is ', '\\r\\n Your password is')
+       D.user.username = this.get_text_between_two_values(last_unread_email.body, 'Your username is ', '\\r\\n Your password is'),
+       D.user.pasword = this.get_text_between_two_values(last_unread_email.body, 'Your password is ', '\\r\\n')
 
         console.log( 'I fetched username: ' + D.user.username)
         console.log( 'and password: ' + D.user.password)
