@@ -2,6 +2,9 @@ import BasePage from "./base-page";
 
 // *************************** ELEMENTS ***************************
 let
+    sidebar = e => browser.$('#sidebar_elements'),
+    userProfileImage = e => browser.$('#user_avatar'),
+    logout = e => browser.$('[href="/logout"]'),
     usersLink = e => browser.$('[href="/users/"]'),
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
@@ -40,6 +43,18 @@ export default class Menu extends BasePage {
 
     click_Service_Providers() {
         serviceProvidersLink().click();
+        return this;
+    }
+
+    click_Log_Out() {
+        userProfileImage().click();
+        logout().click()
+        return this;
+    }
+
+    verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions) {
+        this.verifyVisibleValues(sidebar(),  ['Dashboard', 'Inventory'])
+        this.verifyInvisibleValues(sidebar(),  ['Dashboard', 'Inveggg'])
         return this;
     }
 }

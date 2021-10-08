@@ -44,7 +44,7 @@ export default class BasePage {
         return this;
     };
 
-    verifyMultipleValuesOnOneElement(mainContainer, obj) {
+    verifyVisibleValues(mainContainer, obj) {
 
         let that = this
         const res = {};
@@ -68,8 +68,32 @@ export default class BasePage {
         return this;
     };
 
+    verifyInvisibleValues(containerElement, obj) {
+
+        let that = this
+        const res = {};
+
+        function recurse(obj, current) {
+            for (const key in obj) {
+                let value = obj[key];
+                if (value != undefined) {
+                    if (value && typeof value === 'object') {
+                        recurse(value, key);
+                    } else {
+                        // Do your stuff here to var value
+                        res[key] = value;
+                        that.verifyTextIsNotVisible(containerElement, res[key]);
+                    }
+                }
+            }
+        }
+
+        recurse(obj);
+        return this;
+    };
+
     verify_all_values_on_main_container(object) {
-        this.verifyMultipleValuesOnOneElement(mainContainer(), object)
+        this.verifyVisibleValues(mainContainer(), object)
         return this;
     }
 
@@ -149,12 +173,22 @@ export default class BasePage {
 
     verifyPartialText(element, text) {
         this.waitElementToBeVisible(element)
-        expect(JSON.stringify(element.getText())).to.contain(text);
+       expect(JSON.stringify(element.getText())).to.contain(text);
         return this;
     };
 
     verifyText(element, text) {
-        this.verifyPartialText(element, text);
+        if (text){
+            this.verifyPartialText(element, text);
+        }
+        else{
+            this.verifyElementIsVisible(elementByPartialText(text));
+        }
+        return this;
+    };
+
+    verifyTextIsNotVisible(element, text) {
+        expect(JSON.stringify(element.getText())).to.not.contain(text);
         return this;
     };
 
@@ -206,16 +240,5 @@ export default class BasePage {
         expect(last_unread_email.from).to.contain(emailTemplate.from)
         expect(last_unread_email.subject).to.include(emailTemplate.subject)
         expect(last_unread_email.body).to.include(emailTemplate.content)
-
-
-
-        //
-        // let username = this.get_text_between_two_values(last_unread_email.body, 'Your username is ', '\\r\\n Your password is')
-        //
-        // console.log('USERNAME IS ' + username)
-        //D.verificationCode = CODE;
-
-        // console.log(last_unread_email.body)
-        // console.log('**************** Verification code is ____' + CODE)
     };
 }

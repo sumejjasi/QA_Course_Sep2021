@@ -1,4 +1,5 @@
 import BasePage from "./base-page";
+import D, {unreadEmails} from "../utils/data";
 
 // *************************** ELEMENTS ***************************
 let
@@ -56,11 +57,21 @@ export default class UsersPage extends BasePage {
         return this;
     }
 
-
-
     verify_all_values(object) {
         this.waitElementToDisappear(usernameInput())
         this.verify_all_values_on_main_container(object)
+        return this;
+    }
+
+    verify_email_and_store_values(emailAccount, emailTemplate) {
+
+        this.verify_email(emailAccount, emailTemplate)
+
+        let last_unread_email = D.unreadEmails[0];
+
+       D.user.username = this.get_text_between_two_values(last_unread_email.body, 'Your username is ', '\\r\\n Your password is')
+       D.user.password = this.get_text_between_two_values(last_unread_email.body, 'Your password is ', '\\r\\n')
+
         return this;
     }
 
