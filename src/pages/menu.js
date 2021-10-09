@@ -7,7 +7,9 @@ let
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
     serviceProvidersLink = e => browser.$('[href="/providers/"]'),
-    merchandiseLink = e => browser.$('[href="/merchandise/"]')
+    merchandiseLink = e => browser.$('[href="/merchandise/"]'),
+    rulesLink = e => browser.$('[href="/rules/"]')
+
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -48,4 +50,9 @@ export default class Menu extends BasePage {
         merchandiseLink().click();
         return this;
     }
+    click_Rules() {
+        rulesLink().click();
+        return this;
+    }
+
 }
