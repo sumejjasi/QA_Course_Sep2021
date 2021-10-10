@@ -47,9 +47,9 @@ export default class RulesPage extends BasePage {
     }
     click_Add_New_Condition(rules) {
         addNewConditionButton().click()
-        browser.switchToFrame(0)
+     //   browser.switchToFrame(0)
         this.clickByText(rules)
-        browser.switchToParentFrame()
+     //   browser.switchToParentFrame()
         return this;
     }
     click_Confirm_Rule() {

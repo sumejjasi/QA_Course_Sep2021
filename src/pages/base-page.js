@@ -6,7 +6,7 @@ const D = require('../utils/data')
 const C = require('../utils/constants')
 
 let
-    elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
+    elementByText = (text) => browser.$('//*[text()="' + text + '"]/i'),
     elementByTagAndText = (tag, text) => browser.$('//' + tag + '[text()="' + text + '"]'),
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
     toastMessage = e => browser.$('.noty_body'),
@@ -141,7 +141,7 @@ export default class BasePage {
             elementByTagAndText(tag, text).waitForEnabled();
             elementByTagAndText(tag, text).click();
         } else {
-            elementByText(text).waitForEnabled();
+            elementByText(text).waitForDisplayed();
             elementByText(text).click();
         }
 

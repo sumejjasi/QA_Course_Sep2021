@@ -87,12 +87,12 @@ D.serviceProvider2 = {
 }
 
 D.user = {
-   email: 'protractor.user2+' + D.getRandomNo()+ '@gmail.com',
-   username: D.getRandomNo(),
-   firstName: 'test firstName',
-   lastName: 'test lastName',
-   tag: 'test tag',
- //  groupName: 'Booking Manager',
+    email: 'protractor.user2+' + D.getRandomNo() + '@gmail.com',
+    username: D.getRandomNo(),
+    firstName: 'test firstName',
+    lastName: 'test lastName',
+    tag: 'test tag',
+    //  groupName: 'Booking Manager',
 }
 
 D.merchandise = {
@@ -104,7 +104,7 @@ D.merchandise = {
 D.rules = {
     name: 'TestNAme',
     description: 'danas je lijep dan',
-    rules:'The date being booked is...'
+    rules: ' The date being booked is...'
 }
 
 module.exports = D;
