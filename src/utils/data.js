@@ -121,6 +121,7 @@ D.contact = {
         address1: 'Test Address 1',
         address2: 'III/2',
         city: 'Sarajevo',
+        country: 'Bosnia'
     }
 }
 
