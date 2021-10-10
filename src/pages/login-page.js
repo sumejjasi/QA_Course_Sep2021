@@ -23,8 +23,10 @@ export default class LoginPage extends BasePage {
     }
 
     enter_credentials(object) {
-        emailInput().setValue(object.email)
+        emailInput().setValue(object.username)
         passwordInput().setValue(object.password)
+
+        console.log('Logging in as ' + object.username + ' / ' + object.password)
         return this;
     }
 

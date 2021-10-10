@@ -38,7 +38,7 @@ context('Test suite title', () => {
 
 
         // Assert
-        expect(loggedInUsername().getText()).to.contain('Dashboard');
+        expect(loggedInUsername().getText()).to.contain('Sumejja');
     })
 });
 

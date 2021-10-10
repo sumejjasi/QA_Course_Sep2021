@@ -88,6 +88,7 @@ export default class BasePage {
             elementByTagAndText(tag, text).click();
         } else {
             elementByText(text).waitForEnabled();
+            elementByText(text).scrollIntoView();
             elementByText(text).click();
         }
 
@@ -206,6 +207,7 @@ export default class BasePage {
 
     markAllEmailsAsRead(emailAccount) {
         browser.fetchGmailUnseenMails(emailAccount.email, emailAccount.password)
+        D.unreadEmails = []
     }
 
     get_text_between_two_values(wholeText, firstValue, secondValue) {
@@ -214,6 +216,7 @@ export default class BasePage {
 
     verify_email(emailAccount, emailTemplate) {
 
+        D.unreadEmails = []
         for (let i = 0; i < 15; i++) {
             if (!D.unreadEmails[0]) {
                 this.pause(5)

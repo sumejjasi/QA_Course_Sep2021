@@ -26,16 +26,17 @@ D.unreadEmails = []
 
 D.users = {
     admin: {
-        email: 'sumejja.s.i@gmail.com',
+        username: 'sumejja.s.i@gmail.com',
         password: 'test1234'
     },
     regularUser: {
-        email: 'mediha@gmail.com',
+        username: 'mediha@gmail.com',
         password: 'test1234'
     }
 }
 
 D.inventory = {
+    name: 'Inventory_' + D.randomNo,
     companyName: 'CompanyName_' + D.randomNo,
     type: 'Product Supplier',
     description: 'description_' + D.randomNo,
@@ -78,7 +79,7 @@ D.serviceProvider = {
         email: 'accountingEmail_' + D.randomNo,
         phone: 'accountingPhone_' + D.randomNo
     },
-  //  inventory: 'Winter Home',
+    //  inventory: 'Winter Home',
     notes: 'note_' + D.randomNo
 }
 
@@ -124,12 +125,23 @@ D.contact = {
 }
 
 D.user = {
-    email: 'protractor.user2+' + D.getRandomNo() + '@gmail.com',
+    email: 'protractor.user2+' + D.randomNo + '@gmail.com',
     username: D.getRandomNo(),
     firstName: 'test firstName',
     lastName: 'test lastName',
     tag: 'test tag',
     groupName: 'Site Administrator',
+}
+
+D.getNewUserData = function () {
+    return D.user = {
+        email: 'protractor.user2+' + D.randomNo + '@gmail.com',
+        username: D.getRandomNo(),
+        firstName: 'test firstName',
+        lastName: 'test lastName',
+        tag: 'test tag',
+        groupName: 'Site Administrator',
+    }
 }
 
 module.exports = D;

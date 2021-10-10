@@ -9,7 +9,7 @@ context('Inventory page tests', () => {
 
         ui.menu.click_Inventory()
         ui.inventory.click_Create_inventory()
-            .enter_Invertory_Name(D.randomNo)
+            .enter_Invertory_Name(D.inventory.name)
             .click_Create_Item_Button()
             .verify_toast_message(C.toastMessages.inventory.itemAdded)
     })
@@ -29,7 +29,7 @@ context('Inventory page tests', () => {
 
         ui.menu.click_Inventory()
         ui.inventory.click_Create_inventory()
-            .enter_all_values(D.inventory)
+            .enter_Invertory_Name(D.inventory.name)
             .upload_multiple_images('test-image.jpg', 'test-image2.jfif')
             .click_Create_Item_Button()
             .verify_toast_message(C.toastMessages.inventory.itemAdded)
