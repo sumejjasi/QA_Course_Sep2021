@@ -104,7 +104,7 @@ D.merchandise = {
 D.rules = {
     name: 'TestNAme',
     description: 'danas je lijep dan',
-    rules: ' The date being booked is...'
+    //rules: 'The date being booked is...'
 }
 
 module.exports = D;
