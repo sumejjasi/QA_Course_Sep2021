@@ -4,7 +4,7 @@ const D = require('../utils/data');
 // *************************** ELEMENTS ***************************
 let
     createRuleButton = e => browser.$('#add_button'),
-    addNewConditionButton = e => browser.$('#add_condition'),
+    //addNewConditionButton = e => browser.$('#add_condition'),
     ruleNameInput = e => browser.$('[placeholder="Give this rule a name"]'),
    descriptionInput = e => browser.$('[placeholder="Describe what this rule does"]'),
     someElementByClassName = e => browser.$('.className'),
@@ -37,7 +37,7 @@ export default class RulesPage extends BasePage {
     enter_all_value(object) {
         this.enterValue(ruleNameInput(), object.name);
         this.enterValue(descriptionInput(),object.description);
-        this.click_Add_New_Condition(object.rules);
+        //this.click_Add_New_Condition(object.rules);
         return this;
     }
 
@@ -46,20 +46,20 @@ export default class RulesPage extends BasePage {
         return this;
     }
     click_Add_New_Condition(rules) {
-        addNewConditionButton().click()
+       // addNewConditionButton().click()
      //   browser.switchToFrame(0)
-        this.clickByText(rules)
+      //  this.clickByText(rules)
      //   browser.switchToParentFrame()
-        return this;
+      //  return this;
     }
     click_Confirm_Rule() {
         confirmCreateRuleButton().click()
         return this;
     }
 
-    verify_all_values(object) {
-        this.waitElementToDisappear(ruleNameInput())
-        this.verify_all_values_on_main_container(object)
-        return this;
-    }
+   // verify_all_values(object) {
+     //   this.waitElementToDisappear(ruleNameInput())
+       // this.verify_all_values_on_main_container(object)
+        //return this;
+    //}
 }

@@ -12,7 +12,7 @@ context('Test suite title', () => {
             .enter_all_value(D.rules)
             .click_Confirm_Rule()
             .verify_toast_message(C.toastMessages.rules.rulesCreated)
-            .pause(5)
+            ui.rulesdetails
             .verify_all_values(D.rules)
 
     })
