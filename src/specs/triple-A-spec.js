@@ -27,7 +27,7 @@ context('Test suite title', () => {
        // let dashboardTitle = e => browser.$('h1');
 
         // element found by id
-        let loggedInUsername = e => browser.$('h1');
+        let loggedInUsername = e => browser.$('#user_fullname');
 
 
         // Act
