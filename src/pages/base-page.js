@@ -5,14 +5,18 @@ const path = require('path');
 const D = require('../utils/data')
 
 let
-    elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
+    elementByText = (text) => browser.$('//*[text()="' + text + '"]/i'),
     elementByTagAndText = (tag, text) => browser.$('//' + tag + '[text()="' + text + '"]'),
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
     toastMessage = e => browser.$('.noty_body'),
     mainContainer = e => browser.$('.card_display'),
     dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber - 1],
+    multipleChoiceField = fieldNumber => browser.$$('.chosen-container-multi')[fieldNumber - 1],
+  //  multipleChoiceField = fieldNumber => browser.$("//*[@class='chosen-container-multi'][position()=" + fieldNumber + "]"),
+    //multipleChoiceField = fieldNumber => browser.$("//*[contains(@class, 'chosen-container-multi')][position()=" + fieldNumber + "]"),
     dropdownSearchInput = e => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
-    dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
+    dropdownOptionUnderlined = text => browser.$('//em[text()="' + text + '"]'),
+    dropdownOption = text => browser.$('//li[contains(text(),"' + text + '")]'),
     uploadContainer = e => browser.$('[type="file"]')
 
 export default class BasePage {
@@ -37,18 +41,39 @@ export default class BasePage {
     }
 
     waitElementToBeVisible(el) {
-        el.waitForDisplayed({timeout: 30000});
+        el.waitForDisplayed();
         return this;
     }
 
     waitElementToBeVisible(el) {
-        el.waitForDisplayed({timeout: 30000});
+        el.waitForDisplayed();
         return this;
     }
 
-    selectDropdownOption(dropdownNumber, option) {
+    titleCase(str) {
+        str = str.split(' ');
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join(' ');
+    }
+
+    selectDropdownOption(dropdownNumber, option, withSearch = true) {
+
+        option = this.titleCase(option)
         dropdown(dropdownNumber).click()
-        this.enterValue(dropdownSearchInput(), option)
+
+        if (withSearch) {
+            this.enterValue(dropdownSearchInput(), option)
+            this.waitAndClick(dropdownOptionUnderlined(option))
+        } else {
+            this.waitAndClick(dropdownOption(option))
+        }
+        return this;
+    }
+
+    selectOptionOnMultipleChoiceField(fieldNumber, option) {
+        this.waitAndClick(multipleChoiceField(fieldNumber))
         this.waitAndClick(dropdownOption(option))
         return this;
     }
@@ -76,7 +101,7 @@ export default class BasePage {
     }
 
     waitAndClick(el) {
-        el.waitForDisplayed({timeout: 30000});
+        el.waitForDisplayed();
         // el.waitForEnabled();
         el.click();
         return this;
