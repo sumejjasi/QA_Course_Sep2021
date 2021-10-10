@@ -24,6 +24,9 @@ C = {
         },
         merchandise: {
             merchandiseCreated: 'Merchandise Added.'
+        },
+        rules: {
+            rulesCreated: 'Rule Added.'
         }
     }
 }

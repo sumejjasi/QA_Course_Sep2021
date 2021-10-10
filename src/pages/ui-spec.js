@@ -9,6 +9,7 @@ import ContactsPage from "./contacts-page";
 import ServiceProvidersPage from "./service-providers-page";
 import GiftCardDetailsPage from "./gift-card-details-page";
 import MerchandisePage from "./add-merhadise-page";
+import RulesPage from "./rules-page";
 
 module.exports = {
     app: new BasePage(),
@@ -22,4 +23,5 @@ module.exports = {
     contacts: new ContactsPage(),
     serviceProviders: new ServiceProvidersPage(),
     merchandise: new MerchandisePage(),
+    rules: new RulesPage(),
 }

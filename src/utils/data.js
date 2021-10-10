@@ -101,5 +101,10 @@ D.merchandise = {
     visibility: 'Available everywhere',   // this will become 'Available Everywhere' on runtime
     provided: 'Automation Test (Address 2)'
 }
+D.rules = {
+    name: 'TestNAme',
+    description: 'danas je lijep dan',
+    rules:'The date being booked is...'
+}
 
 module.exports = D;

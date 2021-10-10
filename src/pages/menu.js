@@ -8,7 +8,7 @@ let
     contactsLink = e => browser.$('[href="/contacts/"]'),
     serviceProvidersLink = e => browser.$('[href="/providers/"]'),
     merchandiseLink = e => browser.$('[href="/merchandise/"]'),
-    rulesLink = e => browser.$('[href="/rules/"]')
+    rulesLink = e =>  browser.$('//a[@href="/rules/"]')
 
 
 // add comma at the end of the previous line before adding new element selectors
