@@ -20,11 +20,6 @@
     "test",
     "mocha"
   ],
-  "dependencies": {
-    "appium": "^1.20.2",
-    "appium-controller": "^1.1.6",
-    "chai": "^4.3.4"
-  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -38,14 +33,14 @@
     "@wdio/mocha-framework": "7.0.0",
     "@wdio/sync": "7.0.0",
     "allure-commandline": "^2.13.0",
-    "appium-windows-driver": "^1.18.1",
-    "chromedriver": "^93.0.1",
     "del-cli": "3.0.1",
+    "chromedriver": "^93.0.1",
     "geckodriver": "^1.22.2",
-    "imap-simple": "^5.0.0",
-    "moment": "^2.29.1",
-    "wdio-chromedriver-service": "6.0.4",
     "wdio-geckodriver-service": "1.1.2",
-    "wdio-webdriver-service": "^1.0.1"
+    "imap-simple": "^5.0.0",
+    "wdio-webdriver-service": "^1.0.1",
+    "appium": "^1.20.2",
+    "appium-controller": "^1.1.6",
+    "chai": "^4.3.4"
   }
 }

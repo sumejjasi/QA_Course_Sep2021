@@ -17,17 +17,66 @@ context('Users page', () => {
             .verify_toast_message(C.toastMessages.users.userAdded)
     })
 
-    it.only('Verify that new user can be added with all values', () => {
+    it('Verify that new user can be added with all values - Site Administrator', () => {
+        let visibleMenuOptions = [ 'Dashboard', 'Bookings', 'Inventory', 'Gift Cards', 'Settings']
+        let invisibleMenuOptions = []
 
+        D.user.groupName = 'Site Administrator'
         D.user.username = D.getRandomNo();
+
         ui.login.login_as(D.users.admin)
         ui.menu.click_Users()
         ui.users.click_add_user()
             .enter_all_values(D.user)
+            .select_group(D.user.groupName)
             .upload_file('test-image.jpg')
             .click_confirm_create_user()
             .verify_toast_message(C.toastMessages.users.userAdded)
             .verify_all_values(D.user)
             .verify_email_and_store_values(D.gmailAccount, C.emailTemplates.userAccountCreated)
+        ui.menu.verify_menu_options(visibleMenuOptions, invisibleMenuOptions)
     })
+
+    it('Verify that new user can be added with all values - Administrator', () => {
+        let visibleMenuOptions = [ 'Dashboard', 'Inventory', 'Gift Cards']
+        let invisibleMenuOptions = ['Settings']
+
+        D.user.groupName = 'Administrator'
+        D.user.username = D.getRandomNo();
+
+        ui.login.login_as(D.users.admin)
+        ui.menu.click_Users()
+        ui.users.click_add_user()
+            .enter_all_values(D.user)
+            .select_group(D.user.groupName)
+            .click_confirm_create_user()
+            .verify_toast_message(C.toastMessages.users.userAdded)
+            .verify_all_values(D.user)
+            .verify_email_and_store_values(D.gmailAccount, C.emailTemplates.userAccountCreated)
+        ui.menu.click_Log_Out()
+        ui.login.login_as(D.user)
+        ui.menu.verify_menu_options(visibleMenuOptions, invisibleMenuOptions)
+    })
+
+    it('Verify that new user can be added with all values - Product Manager', () => {
+        let visibleMenuOptions = [ 'Dashboard', 'Inventory', 'Messages']
+        let invisibleMenuOptions = ['Bookings', 'Settings', 'Merchandise']
+
+        D.user.groupName = 'Product Manager'
+        D.user.username = D.getRandomNo();
+
+        ui.login.login_as(D.users.admin)
+        ui.menu.click_Users()
+        ui.users.click_add_user()
+            .enter_all_values(D.user)
+            .select_group(D.user.groupName)
+            .click_confirm_create_user()
+            .verify_toast_message(C.toastMessages.users.userAdded)
+            .verify_all_values(D.user)
+            .verify_email_and_store_values(D.gmailAccount, C.emailTemplates.userAccountCreated)
+        ui.menu.click_Log_Out()
+        ui.login.login_as(D.user)
+        ui.menu.verify_menu_options(visibleMenuOptions, invisibleMenuOptions)
+    })
+
 });

@@ -12,6 +12,6 @@ context('Contact page tests', () => {
             .enter_all_values(D.contact)
             .click_Confirm_Create_Contact()
             .verify_toast_message(C.toastMessages.contacts.contactAdded)
-            .verify_all_values_on_main_container(D.contact)
+            .verify_all_values(D.contact)
     })
 });

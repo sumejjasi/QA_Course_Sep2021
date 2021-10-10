@@ -15,7 +15,6 @@ context('Service Provider Page', () => {
                 .click_Confirm_Create_Service_Provider()
                 .verify_toast_message(C.toastMessages.serviceProvider.providerAdded)
                 .verify_all_values(D.serviceProvider)
-                 .pause(5)
         })
   // }
 });

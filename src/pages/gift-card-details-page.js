@@ -15,12 +15,8 @@ export default class GiftCardDetailsPage extends BasePage {
 
     // *************************** ACTIONS ***************************
 
-    click_Send_Card() {
+    send_gift_card() {
         sendCardButton().click()
-        return this;
-    }
-
-    complete_Send_Gift_Card() {
         browser.switchToFrame(0)
         sendGiftCardButton().click()
         browser.switchToParentFrame()

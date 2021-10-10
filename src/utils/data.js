@@ -11,6 +11,12 @@ D.getRandomNo = function () {
 
 D.randomNo = D.getRandomNo();
 
+function format(value, pattern) {
+    var i = 0,
+        v = value.toString();
+    return pattern.replace(/#/g, _ => v[i++]);
+}
+
 D.gmailAccount = {
     email: 'protractor.user2@gmail.com',
     password: 'Qapps2021.',
@@ -29,8 +35,55 @@ D.users = {
     }
 }
 
+D.inventory = {
+    companyName: 'CompanyName_' + D.randomNo,
+    type: 'Product Supplier',
+    description: 'description_' + D.randomNo,
+    tag: 'tag_' + D.randomNo
+}
+
+D.serviceProvider = {
+    companyName: 'CompanyName_' + D.randomNo,
+    website: 'website_' + D.randomNo,
+    type: 'Product Supplier',
+    description: 'description_' + D.randomNo,
+    tag: 'tag' + D.randomNo,
+    companyInformation: {
+        address1: 'address1_' + D.randomNo,
+        address2: 'address2_' + D.randomNo,
+        city: 'city_' + D.randomNo,
+        state: 'state_' + D.randomNo,
+        country: 'Bosnia',
+        postal: 'postal_' + D.randomNo,
+        phone: 'phone_' + D.randomNo,
+        email: 'email_' + D.randomNo,
+    },
+    accounting: {
+        account: 'account_' + D.randomNo,
+        commission: '12',
+        siteCode: 'siteCode_' + D.randomNo,
+        glCode: 'glCode_' + D.randomNo,
+        taxRate: 'taxRate_' + D.randomNo,
+        terms: 5,
+        credit: '123',
+        otherCode: '456',
+    },
+    primaryContact: {
+        name: 'primaryName_' + D.randomNo,
+        email: 'primaryEmail_' + D.randomNo,
+        phone: 'primarytPhone_' + D.randomNo
+    },
+    accountingContact: {
+        name: 'accountingName_' + D.randomNo,
+        email: 'accountingEmail_' + D.randomNo,
+        phone: 'accountingPhone_' + D.randomNo
+    },
+  //  inventory: 'Winter Home',
+    notes: 'note_' + D.randomNo
+}
+
 D.giftCard = {
-    number: D.randomNo,
+    number: format(D.randomNo, '###-####-####'),
     firstName: 'Test First Name',
     lastName: 'Test Last Name',
     email: 'protractor.user2@gmail.com',
@@ -40,13 +93,14 @@ D.giftCard = {
         address1: 'Test Address 1',
         address2: 'III/2',
         city: 'Sarajevo',
-        state: 'Canton Sarajevo',
+        stateCode: '1212',
+        country: 'Bosnia',
         postal: '71000',
         phone: '000/333/444',
         email: 'sumejja.s.i@gmai.com',
     },
     cardDetails: {
-        cardValue: 'test card value',
+        cardValue: '333',
         maxUses: '2',
         expires: '2021-10-06',
     }
@@ -69,30 +123,13 @@ D.contact = {
     }
 }
 
-D.serviceProvider = {
-    company: 'Test Company',
-    website: 'test website',
-    description: 'test description',
-    tag: 'test tag',
-    type: 'Transport Provider',
-    country: 'Bosnia',
-}
-
-D.serviceProvider2 = {
-    company: 'Test Companyyyyy',
-    website: 'test website',
-    description: 'test description',
-    tag: 'test tag',
-    type: 'Product Supplier',
-}
-
 D.user = {
-   email: 'protractor.user2+' + D.getRandomNo()+ '@gmail.com',
-   username: D.getRandomNo(),
-   firstName: 'test firstName',
-   lastName: 'test lastName',
-   tag: 'test tag',
- //  groupName: 'Booking Manager',
+    email: 'protractor.user2+' + D.getRandomNo() + '@gmail.com',
+    username: D.getRandomNo(),
+    firstName: 'test firstName',
+    lastName: 'test lastName',
+    tag: 'test tag',
+    groupName: 'Site Administrator',
 }
 
 module.exports = D;

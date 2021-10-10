@@ -5,13 +5,15 @@ const D = require('../utils/data');
 let
     createInventoryButton = e => browser.$('#add_button'),
     inventoryName = e => browser.$('#name'),
+    website = e => browser.$('[placeholder="Company website"]'),
+    description = e => browser.$('[placeholder="Brief description or details"]'),
+    tags = e => browser.$$('[placeholder="Enter tags..."]')[1],
      overviewInput = e => browser.$('[data-id="overview"]'),
     createItemButton = e => browser.$('.save_button'),
     // imageBox1 = e => browser.$$('.image-box')[0],
     // imageBox2 = e => browser.$$('.image-box')[1],
-    imageBox1 = e => browser.$("//*[@class='image_path'][position()=1]"),
-    imageBox2 = e => browser.$("//*[@class='image_path move_handle'][position()=2]")
-    imageBox2 = e => browser.$("//*[@class='image_path move_handle'][position()=1]")
+    imageBox1 = e => browser.$("//*[@class='image-box'][position()=1]"),
+    imageBox2 = e => browser.$("//*[@class='image-box'][position()=1]")
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -22,21 +24,6 @@ export default class InventoryPage extends BasePage {
     }
 
     // *************************** ACTIONS ***************************
-
-    click_something() {
-        someElementById().click()
-        return this;
-    }
-
-    enter_something() {
-        this.enterValue(someElementByAttribute(), 'some text');
-        return this;
-    }
-
-    verify_something() {
-        this.verifyText(someElementByClassName(), 'some text')
-        return this;
-    }
 
     click_Create_inventory() {
         createInventoryButton().click()
@@ -50,10 +37,6 @@ export default class InventoryPage extends BasePage {
 
     enter_all_values(object) {
         this.enterValue(inventoryName(), 'testtt');
-        this.pause(3)
-        browser.switchToFrame(1)
-        browser.executeScript("arguments[0].innerHTML = 'Set text using innerHTML'", text)
-        this.enterValue(overviewInput(), 'test')
         return this;
     }
 

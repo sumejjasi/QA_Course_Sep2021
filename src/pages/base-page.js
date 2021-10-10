@@ -3,7 +3,6 @@ import {expect} from 'chai';
 
 const path = require('path');
 const D = require('../utils/data')
-const C = require('../utils/constants')
 
 let
     elementByText = (text) => browser.$('//*[text()="' + text + '"]'),
@@ -11,7 +10,6 @@ let
     elementByPartialText = (text) => browser.$('//*[contains(text(),"' + text + '")]'),
     toastMessage = e => browser.$('.noty_body'),
     mainContainer = e => browser.$('.card_display'),
-    dropdownSearch = e => browser.$('.chosen-search-input'),
     dropdown = dropdownNumber => browser.$$('.chosen-container-single')[dropdownNumber - 1],
     dropdownSearchInput = e => browser.$('//*[contains(@class, "chosen-container-active")]/div/div/input'),
     dropdownOption = text => browser.$('//em[text()="' + text + '"]'),
@@ -33,74 +31,8 @@ export default class BasePage {
         return this;
     }
 
-    verifyTextOnMultipleElements(elementValuePairs) {
-        let that = this;
-
-        elementValuePairs.forEach(function (arrayElement) {
-            if (arrayElement[1]) {
-                that.verifyText(arrayElement[0], arrayElement[1]);
-            }
-        });
-        return this;
-    };
-
-    verifyVisibleValues(mainContainer, obj) {
-
-        let that = this
-        const res = {};
-
-        function recurse(obj, current) {
-            for (const key in obj) {
-                let value = obj[key];
-                if (value != undefined) {
-                    if (value && typeof value === 'object') {
-                        recurse(value, key);
-                    } else {
-                        // Do your stuff here to var value
-                        res[key] = value;
-                        that.verifyText(mainContainer, res[key]);
-                    }
-                }
-            }
-        }
-
-        recurse(obj);
-        return this;
-    };
-
-    verifyInvisibleValues(containerElement, obj) {
-
-        let that = this
-        const res = {};
-
-        function recurse(obj, current) {
-            for (const key in obj) {
-                let value = obj[key];
-                if (value != undefined) {
-                    if (value && typeof value === 'object') {
-                        recurse(value, key);
-                    } else {
-                        // Do your stuff here to var value
-                        res[key] = value;
-                        that.verifyTextIsNotVisible(containerElement, res[key]);
-                    }
-                }
-            }
-        }
-
-        recurse(obj);
-        return this;
-    };
-
-    verify_all_values_on_main_container(object) {
-        this.verifyVisibleValues(mainContainer(), object)
-        return this;
-    }
-
     waitElementToDisappear(el) {
-        //if (el.isDisplayed() === true) {
         el.waitForDisplayed({reverse: true});
-        //}
         return this;
     }
 
@@ -133,6 +65,13 @@ export default class BasePage {
         el.waitForDisplayed();
         el.waitForEnabled();
         el.setValue(text);
+        return this;
+    }
+
+    scrollAndClick(el) {
+        el.scrollIntoView();
+        el.waitForDisplayed();
+        el.click();
         return this;
     }
 
@@ -173,15 +112,14 @@ export default class BasePage {
 
     verifyPartialText(element, text) {
         this.waitElementToBeVisible(element)
-       expect(JSON.stringify(element.getText())).to.contain(text);
+        expect(JSON.stringify(element.getText())).to.contain(text);
         return this;
     };
 
     verifyText(element, text) {
-        if (text){
+        if (text) {
             this.verifyPartialText(element, text);
-        }
-        else{
+        } else {
             this.verifyElementIsVisible(elementByPartialText(text));
         }
         return this;
@@ -197,23 +135,70 @@ export default class BasePage {
         return this;
     };
 
-    verifyTextIsNotVisibleOnMainContainer(text, androidWebContext = true, iOSWebContext = true) {
-        expect(mainContainer().getText()).to.not.contain(text);
+    verifyVisibleValues(containerElement, obj) {
+
+        let that = this
+        const res = {};
+
+        function recurse(obj, current) {
+            for (const key in obj) {
+                let value = obj[key];
+                if (value != undefined) {
+                    if (value && typeof value === 'object') {
+                        recurse(value, key);
+                    } else {
+                        // Do your stuff here to var value
+                        res[key] = value;
+                        that.verifyText(containerElement, res[key]);
+                    }
+                }
+            }
+        }
+
+        recurse(obj);
         return this;
     };
 
-    verifyTextOnMultipleElements(valuesOrElementValuePairs) {
+    verifyInvisibleValues(containerElement, obj) {
+
+        let that = this
+        const res = {};
+
+        function recurse(obj, current) {
+            for (const key in obj) {
+                let value = obj[key];
+                if (value != undefined) {
+                    if (value && typeof value === 'object') {
+                        recurse(value, key);
+                    } else {
+                        // Do your stuff here to var value
+                        res[key] = value;
+                        that.verifyTextIsNotVisible(containerElement, res[key]);
+                    }
+                }
+            }
+        }
+
+        recurse(obj);
+        return this;
+    };
+
+    verify_all_values_on_main_container(object) {
+        this.verifyVisibleValues(mainContainer(), object)
+        return this;
+    }
+
+    verifyTextIsNotVisibleOnMainContainer(text) {
+        expect(JSON.stringify(mainContainer().getText())).to.not.contain(text);
+        return this;
+    };
+
+    verifyTextOnMultipleElements(elementValuePairs) {
         let that = this;
 
-        valuesOrElementValuePairs.forEach(function (arrayElement) {
-            if (Array.isArray(arrayElement)) {
-                if (arrayElement[1]) {
-                    that.verifyText(arrayElement[0], arrayElement[1]);
-                }
-            } else {
-                if (arrayElement) {
-                    that.verifyText(arrayElement);
-                }
+        elementValuePairs.forEach(function (arrayElement) {
+            if (arrayElement[1]) {
+                that.verifyText(arrayElement[0], arrayElement[1]);
             }
         });
         return this;

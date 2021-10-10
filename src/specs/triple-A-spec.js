@@ -30,7 +30,6 @@ context('Test suite title', () => {
         let loggedInUsername = e => browser.$('h1');
 
 
-
         // Act
         browser.url("https://login.rezgo.com/")
         emailInput().setValue('sumejja.s.i@gmail.com')
@@ -42,12 +41,4 @@ context('Test suite title', () => {
         expect(loggedInUsername().getText()).to.contain('Dashboard');
     })
 });
-
-
-//Merjem
-//Mukaddesa
-//Kanita
-//Suriza
-// Dzejna
-// Mediha
 

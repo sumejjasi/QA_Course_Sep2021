@@ -1,5 +1,3 @@
-require('@wdio/mocha-framework');
-const helper = require('./helper')
 const D = require('../utils/data');
 
 let C;
@@ -14,7 +12,8 @@ C = {
             cardSent: ' Gift card sent to ' //+ D.giftCard.email
         },
         inventory: {
-            itemAdded: 'Inventory Item Added.'
+            itemAdded: 'Inventory Item Added.',
+            existingItem: 'You are already using that item name on another item.'
         },
         serviceProvider: {
             providerAdded: 'Provider Added.'

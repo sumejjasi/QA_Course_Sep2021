@@ -53,8 +53,10 @@ export default class Menu extends BasePage {
     }
 
     verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions) {
-        this.verifyVisibleValues(sidebar(),  ['Dashboard', 'Inventory'])
-        this.verifyInvisibleValues(sidebar(),  ['Dashboard', 'Inveggg'])
+        this.verifyVisibleValues(sidebar(),  arrayOfVisibleOptions)
+        this.verifyInvisibleValues(sidebar(),  arrayOfInvisibleOptions)
+
+        this.verifyVisibleValues()
         return this;
     }
 }

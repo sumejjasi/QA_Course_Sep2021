@@ -1,4 +1,3 @@
-
 /* DATE FORMAT functions */
 const D = require('./data');
 const C = require('./constants');
@@ -25,7 +24,9 @@ const dateFormat = (function () {
 
         // Passing date through Date applies Date.parse, if necessary
         date = date ? new Date(date) : new Date();
-        if (isNaN(date)) { throw SyntaxError('invalid date'); }
+        if (isNaN(date)) {
+            throw SyntaxError('invalid date');
+        }
 
         mask = String(dF.masks[mask] || mask || dF.masks.default);
 
@@ -181,35 +182,23 @@ exports.setDate = function (dateOnlyFormat, year, month, date) {
     return dateFormat(selectedDate, dateOnlyFormat.mask)
 };
 
-exports.randomNo = Math.floor(1000 * Math.random() + 1).toString() + Date.now().toString().substring(-12);
-
-exports.setNewRandomNo = function () {
-    return exports.randomNo = Math.floor(1000 * Math.random() + 1).toString() + Date.now().toString().substring(-12);
-};
-
-exports.setNewRandomString = function (length = 3) {
+exports.getRandomString = function (length = 3) {
     var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var result = '';
-    for ( var i = 0; i < length; i++ ) {
+    for (var i = 0; i < length; i++) {
         result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
     }
     exports.randomString = dateFormat(Date(), 'mmmm') + result;
     return exports.randomString.toLowerCase();
 };
 
-exports.getRandomNo = function (length) {
-   // if (length) {
-   //      let randomChars = '0123456789';
-   //      let result = '';
-   //      for (let i = 0; i < length; i++) {
-   //          result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
-   //      }
-   //      return dateFormat(Date(), 'ddmmyy') + result;
-
-    return Math.floor(1000 * Math.random() + 1).toString() + Date.now().toString().substring(-12);
-   // } else {
-   //     return exports.randomNo;
-   // }
+exports.getRandomNo = function (length = 5) {
+    let randomChars = '0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return dateFormat(Date(), 'ddmmyy') + result;
 };
 
 exports.fetch_all_dropdown_values_and_convert_to_object_properties = function (dropdownSelector) {
@@ -233,6 +222,7 @@ exports.format_as_phone_number = function (str) {
 
     if (match) {
         return '(' + match[1] + ') ' + match[2] + '-' + match[3]
-    };
+    }
+    ;
     return null
 };
