@@ -37,6 +37,11 @@ export default class Menu extends BasePage {
         return this;
     }
 
+    click_Sales_Desks() {
+        salesDeskLink().click();
+        return this;
+    }
+
     click_Contacts() {
         contactsLink().click();
         return this;

@@ -1,7 +1,7 @@
 import BasePage from "./base-page";
+
 const D = require('../utils/data')
 const C = require('../utils/constants')
-
 
 
 // *************************** ELEMENTS ***************************
@@ -11,19 +11,19 @@ let
     someElementByClassName = e => browser.$('.className'),
     createDeskButton = e => browser.$('#add_button'),
     nameInput = e => browser.$('#name'),
-    iDNumberInput = e => browser.$('.other_id'),
+    iDNumberInput = e => browser.$('[name="other_id"]'),
     tagsInput = e => browser.$$('[placeholder="Enter tags ..."]')[1],
 
     addDeskPaymentMethodButton = e => browser.$('#add_payment_methods'),
-    chooseEmvTerminalButton = e => browser.$('.add_action'),
+    chooseEmvTerminalButton = e => browser.$('[href="?mode=payment_method_emv"]'),
 
-    addEmvTerminalButton = e => browser.$('.btn btn-primary'),
+    addEmvTerminalButton = e => browser.$('.btn-primary'),
 
     nameInput_terminal = e => browser.$('[placeholder="Terminal Name"]'),
     localIpInput_terminal = e => browser.$('[placeholder="Terminal IP Address"]'),
     localPortInput_terminal = e => browser.$('[placeholder="80"]'),
 
-    createDeskButtonConfirm = e => browser.$('.btn btn-primary'),
+    createDeskButtonConfirm = e => browser.$('.icon-ok'),
 
     deskLinkButton = e => browser.$('#desk_link')
 
@@ -43,27 +43,27 @@ export default class SalesDesksPage extends BasePage {
         return this;
     }
 
-  select_Payment_Method(salesDesks) {
+    select_Payment_Method(salesDesks) {
         addDeskPaymentMethodButton().click()
         browser.switchToFrame(0)
-      chooseEmvTerminalButton().click()
-      this.enterValue(nameInput_terminal(),salesDesks.name)
-      this.enterValue(localIpInput_terminal(),salesDesks.localIp)
-      this.enterValue(localPortInput_terminal(), salesDesks.localPort)
-      addEmvTerminalButton().click()
-      browser.switchToParentFrame()
+        chooseEmvTerminalButton().click()
+        this.enterValue(nameInput_terminal(), salesDesks.name)
+        this.enterValue(localIpInput_terminal(), salesDesks.localIp)
+        this.enterValue(localPortInput_terminal(), salesDesks.localPort)
+        addEmvTerminalButton().click()
+        browser.switchToParentFrame()
 
         return this;
     }
 
 
     enter_all_values(salesDesks) {
-        this.enterValue(nameInput(),salesDesks.name)
-        this.enterValue(iDNumberInput(),salesDesks.idNum)
-        this.enterValue(tagsInput(),salesDesks.tags)
+        this.enterValue(nameInput(), salesDesks.name)
+        this.enterValue(iDNumberInput(), salesDesks.idNum)
+        this.enterValue(tagsInput(), salesDesks.tags)
 
-        this.selectDropdownOption(1,salesDesks.location,false)
-        this.selectDropdownOption(2,salesDesks.provider)
+        this.selectDropdownOption(1, salesDesks.location, false)
+        this.selectDropdownOption(2, salesDesks.provider)
 
         return this;
     }
