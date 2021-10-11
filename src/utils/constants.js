@@ -21,6 +21,10 @@ C = {
         contacts: {
             contactAdded: 'Contact Added.'
         }
+
+        salesDesk: {
+            contactAdded: 'Desk Added.'
+        }
     }
 }
 

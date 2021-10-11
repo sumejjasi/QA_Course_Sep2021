@@ -20,4 +20,5 @@ module.exports = {
     inventory: new InventoryPage(),
     contacts: new ContactsPage(),
     serviceProviders: new ServiceProvidersPage(),
+    salesDesk: new SalesDeskPage
 }

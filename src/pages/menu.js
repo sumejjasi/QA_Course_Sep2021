@@ -10,6 +10,8 @@ let
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
     serviceProvidersLink = e => browser.$('[href="/providers/"]')
+    salesDeskLink = e => browser.$('[href="/desks/"]')
+
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -46,17 +48,27 @@ export default class Menu extends BasePage {
         return this;
     }
 
-    click_Log_Out() {
-        userProfileImage().click();
-        logout().click()
+    click_Sales_Desk() {
+        salesDesksLink().click();
         return this;
     }
 
-    verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions) {
-        this.verifyVisibleValues(sidebar(),  arrayOfVisibleOptions)
-        this.verifyInvisibleValues(sidebar(),  arrayOfInvisibleOptions)
 
-        this.verifyVisibleValues()
-        return this;
-    }
+}
+
+click_Log_Out()
+{
+    userProfileImage().click();
+    logout().click()
+    return this;
+}
+
+verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions)
+{
+    this.verifyVisibleValues(sidebar(), arrayOfVisibleOptions)
+    this.verifyInvisibleValues(sidebar(), arrayOfInvisibleOptions)
+
+    this.verifyVisibleValues()
+    return this;
+}
 }

@@ -5,19 +5,11 @@ import {stat} from "@babel/core/lib/gensync-utils/fs";
 let
     createContactButton = e => browser.$('#add_button'),
     confirmCreateContactButton = e => browser.$('.save_button'),
-    firstNameInput = e => browser.$('[placeholder="First Name"]'),
-    lastNameInput = e => browser.$('[placeholder="Last Name"]'),
-    companyNameInput = e => browser.$('[placeholder="Company Name"]'),
-    emailInput = e => browser.$('[placeholder="Email Address"]'),
-    phoneInput = e => browser.$('[placeholder="Phone Number"]'),
-    sourceInput = e => browser.$('[placeholder="Contact Source"]'),
-    IdNumInput = e => browser.$('[placeholder="ID or Ref Num"]'),
-    address1Input = e => browser.$('[placeholder="Street Address"]'),
-    address2Input = e => browser.$('[placeholder="Apartment or Unit Number"]'),
-    cityInput = e => browser.$('[placeholder="City Name"]'),
-    stateInput = e => browser.$('[placeholder="State or Province Code"]'),
-    postalInput = e => browser.$('[placeholder="Zip or Postal Code"]'),
-    notesInput = e => browser.$('[name="notes"]')
+    deskNameInput = e => browser.$('#id="name"),
+    idNumberInput = e => browser.$('#other_id"),
+    tagsInput = e => browser.$('Enter tags ...")
+
+
 
 // add comma at the end of the previous line before adding new element selectors
 

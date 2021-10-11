@@ -133,6 +133,14 @@ D.user = {
     groupName: 'Site Administrator',
 }
 
+
+D.salesDesk = {
+    deskNameName: 'Test First Name',
+    idNumber: 'Test First Name',
+    tags: 'test tags',
+
+}
+
 D.getNewUserData = function () {
     return D.user = {
         email: 'protractor.user2+' + D.randomNo + '@gmail.com',
@@ -144,4 +152,8 @@ D.getNewUserData = function () {
     }
 }
 
+
+
 module.exports = D;
+
+
