@@ -8,6 +8,7 @@ import InventoryPage from "./inventory-page";
 import ContactsPage from "./contacts-page";
 import ServiceProvidersPage from "./service-providers-page";
 import GiftCardDetailsPage from "./gift-card-details-page";
+import SalesDesks from "./sales-desks";
 
 module.exports = {
     app: new BasePage(),
@@ -18,6 +19,16 @@ module.exports = {
     giftCard: new GiftCardPage(),
     giftCardDetails: new GiftCardDetailsPage(),
     inventory: new InventoryPage(),
-    contacts: new ContactsPage(),
+    contact: new ContactsPage(),
     serviceProviders: new ServiceProvidersPage(),
+    salesDesks: new  SalesDesks()
+
+
+
+
+
+
+
+
+
 }

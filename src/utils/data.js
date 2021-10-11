@@ -133,6 +133,15 @@ D.user = {
     groupName: 'Site Administrator',
 }
 
+D.sales_desks = {
+    nameDesks:'tEST123',
+    deskLocation: 'Sarajevo - Gladno Polje 889',
+    deskProvider: '4324 (8551)',
+    IdNum: '18',
+    tagsDesks: 'test4',
+    methodObject: 'credit card'
+}
+
 D.getNewUserData = function () {
     return D.user = {
         email: 'protractor.user2+' + D.randomNo + '@gmail.com',
