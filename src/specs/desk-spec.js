@@ -10,7 +10,7 @@ context('Test suite title', () => {
             .click_Sales_Desks()
         ui.desk.click_Create_Desk()
             .enter_all_values(D.desk)
-           // .click_Add_Desk_Payment(D.desk)
+           //.click_Add_Desk_Payment(D.desk)
             .click_Confirm_Create_Desk()
             .verify_toast_message(C.toastMessages.desk.deskAdded)
            // .verify_all_values(D.desk)

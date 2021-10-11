@@ -150,10 +150,10 @@ D.getNewUserData = function () {
         provider: 'Automation Test (8448)',
         number: D.getRandomNo(),
         tagDesk: 'newDesk',
-      //  emvterminal:'EMV Terminal',
-       // nameModal:'modal',
-       // ipModal:'iptest',
-       // localModal:'localtest'
+       //emvterminal:'EMV Terminal',
+      // nameModal:'modal',
+       //ipModal:'iptest',
+      // localModal:'localtest'
 
     }
 
