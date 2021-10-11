@@ -106,7 +106,22 @@ D.giftCard = {
         expires: '2021-10-06',
     }
 }
+D.salesDesks = {
+    name: 'Test',
+    idNum: '111',
+    tags: 'tag111',
+    location: 'Sarajevo-Gladno Polje(889)',
+    provider:'Automation test(8448)',
 
+
+
+    terminalSection:{
+        name: 'testB',
+        localIp:'llj',
+        localPort:'1111'
+    }
+
+}
 D.contact = {
     profile: {
         firstName: 'Test First Name',

@@ -9,7 +9,8 @@ let
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
-    serviceProvidersLink = e => browser.$('[href="/providers/"]')
+    serviceProvidersLink = e => browser.$('[href="/providers/"]'),
+    salesDeskLink = e => browser.$('[href="/desks/"]')
 
 // add comma at the end of the previous line before adding new element selectors
 
