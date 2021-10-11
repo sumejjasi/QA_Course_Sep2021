@@ -135,8 +135,8 @@ D.user = {
 
 
 D.salesDesk = {
-    deskNameName: 'Test First Name',
-    idNumber: 'Test First Name',
+    deskName: 'Test First Name',
+    idNumber: 'Test ID',
     tags: 'test tags',
 
 }

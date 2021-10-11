@@ -3,10 +3,10 @@ import BasePage from "./base-page";
 // *************************** ELEMENTS ***************************
 let
     createDeskButton = e => browser.$('#add_button'),
-    confirmCreateDeskButton = e => browser.$('.save_button')
-    deskNameInput= e => browser.$('#id="name"')
-    idNumberInput = e => browser.$('#other_id'),
-    tagsInput = e => browser.$('placeholder="Enter tags ..."')
+    confirmCreateDeskButton = e => browser.$('.save_button'),
+    deskNameInput= e => browser.$('#name'),
+    idNumberInput = e => browser.$('[name="other_id"]'),
+    tagsInput = e => browser.$$('[placeholder="Enter tags ..."]')[1]
 
 
 // add comma at the end of the previous line before adding new element selectors
@@ -30,15 +30,15 @@ export default class SalesDeskPage extends BasePage {
     }
 
     verify_all_values(object) {
-        this.waitElementToDisappear(confirmCreateDeskButton();
+        this.waitElementToDisappear(confirmCreateDeskButton());
         this.verify_all_values_on_main_container(object)
         return this;
     }
 
-    enter_all_values(deskName.Object) {
-        this.enterValue(deskNameInput(), deskNameObject.deskName);
-        this.enterValue(idNumberInput(), deskNameObject.idNumber);
-        this.enterValue(tagsInput(), deskNameObject.tagsName);
+    enter_all_values(object) {
+        this.enterValue(deskNameInput(), object.deskName);
+        this.enterValue(idNumberInput(), object.idNumber);
+        this.enterValue(tagsInput(), object.tags);
 
         return this;
     }

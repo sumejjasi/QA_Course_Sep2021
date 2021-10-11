@@ -20,10 +20,9 @@ C = {
         },
         contacts: {
             contactAdded: 'Contact Added.'
-        }
-
+        },
         salesDesk: {
-            contactAdded: 'Desk Added.'
+            deskAdded: 'Desk Added.'
         }
     }
 }

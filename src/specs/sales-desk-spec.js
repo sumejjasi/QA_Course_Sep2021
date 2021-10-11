@@ -5,7 +5,7 @@ const C = require('../utils/constants');
 context('Sales Desk Page Test', () => {
 
     it('Verify than new desk can be added with all values', () => {
-      ui.login.login_as(D.user.admin)
+      ui.login.login_as(D.users.admin)
         ui.menu.click_Users()
             .click_Sales_Desk()
         ui.salesDesk.click_create_desk_()

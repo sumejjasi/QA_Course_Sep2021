@@ -9,7 +9,7 @@ let
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
-    serviceProvidersLink = e => browser.$('[href="/providers/"]')
+    serviceProvidersLink = e => browser.$('[href="/providers/"]'),
     salesDeskLink = e => browser.$('[href="/desks/"]')
 
 
@@ -49,26 +49,22 @@ export default class Menu extends BasePage {
     }
 
     click_Sales_Desk() {
-        salesDesksLink().click();
+        salesDeskLink().click();
         return this;
     }
 
 
-}
+    click_Log_Out() {
+        userProfileImage().click();
+        logout().click()
+        return this;
+    }
 
-click_Log_Out()
-{
-    userProfileImage().click();
-    logout().click()
-    return this;
-}
+    verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions) {
+        this.verifyVisibleValues(sidebar(), arrayOfVisibleOptions)
+        this.verifyInvisibleValues(sidebar(), arrayOfInvisibleOptions)
 
-verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions)
-{
-    this.verifyVisibleValues(sidebar(), arrayOfVisibleOptions)
-    this.verifyInvisibleValues(sidebar(), arrayOfInvisibleOptions)
-
-    this.verifyVisibleValues()
-    return this;
-}
+        this.verifyVisibleValues()
+        return this;
+    }
 }
