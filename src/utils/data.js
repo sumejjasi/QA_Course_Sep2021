@@ -144,4 +144,18 @@ D.getNewUserData = function () {
     }
 }
 
+    D.desk = {
+        nameDesk: 'testName',
+        location: 'Sarajevo - Gladno Polje  (889)',
+        provider: 'Automation Test (8448)',
+        number: D.getRandomNo(),
+        tagDesk: 'newDesk',
+      //  emvterminal:'EMV Terminal',
+       // nameModal:'modal',
+       // ipModal:'iptest',
+       // localModal:'localtest'
+
+    }
+
+
 module.exports = D;

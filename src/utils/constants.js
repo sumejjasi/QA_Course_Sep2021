@@ -20,6 +20,9 @@ C = {
         },
         contacts: {
             contactAdded: 'Contact Added.'
+        },
+        desk: {
+            deskAdded: 'Desk Added.'
         }
     }
 }
