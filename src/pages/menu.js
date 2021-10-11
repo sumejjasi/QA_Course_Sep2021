@@ -9,8 +9,8 @@ let
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
-    serviceProvidersLink = e => browser.$('[href="/providers/"]')
-
+    serviceProvidersLink = e => browser.$('[href="/providers/"]'),
+    salesDesk = e => browser.$('[href="/desks/"]')
 // add comma at the end of the previous line before adding new element selectors
 
 export default class Menu extends BasePage {
@@ -52,9 +52,15 @@ export default class Menu extends BasePage {
         return this;
     }
 
+
+    click_sales_desks() {
+        salesDesk().click()
+        return this;
+    }
+
     verify_menu_options(arrayOfVisibleOptions, arrayOfInvisibleOptions) {
-        this.verifyVisibleValues(sidebar(),  arrayOfVisibleOptions)
-        this.verifyInvisibleValues(sidebar(),  arrayOfInvisibleOptions)
+        this.verifyVisibleValues(sidebar(), arrayOfVisibleOptions)
+        this.verifyInvisibleValues(sidebar(), arrayOfInvisibleOptions)
 
         this.verifyVisibleValues()
         return this;
