@@ -10,6 +10,8 @@ context('Test suite title', () => {
             .click_sales_desks()
         ui.salesDesk.click_create_sales_desks()
             .enter_all_values(D.salesDesk)
-            .E
+            .add_desk_payment_method(D.salesDesk)
+            .click_confirm_Create_sales_desks()
+            .verify_toast_message(C.toastMessages.salesDesk.deskAdded)
     })
 });

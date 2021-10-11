@@ -12,7 +12,8 @@ exports.config = {
     specs: [
          // './src/specs/triple-A-spec.js',
          // './src/specs/test-template.js',
-           './src/specs/add-user-spec.js',
+        //   './src/specs/add-user-spec.js',
+           './src/specs/add-sale-desk.js',
         // './src/specs/add-inventory-spec.js',
         // './src/specs/add-gift-card-spec.js',
         // './src/specs/add-contact-spec.js',

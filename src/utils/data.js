@@ -34,38 +34,18 @@ D.users = {
         password: 'test1234'
     }
 }
-D.salesDesk={
-    createDesk: {
-        name: test12,
-        location: 'Sarajevo-GladnoPolje(889)',
-        provider: D.randomNo + 'MukaddesaCompany',
-        IDNumber: '456780',
-        tags: 'tag1',
-    },
-    groupDesk: {
-        groupUsers: D.randomNo,
-        groups: 'Administrator' + D.randomNo,
-    },
-    restrictions: {
-        labels: D.randomNo,
-        paymentMethods: 'method',
-    },
+D.salesDesk = {
+    name: 'test12',
+    location: 'Sarajevo - Gladno Polje  (889)',
+    provider: 'Automation Test (8448)',
+    IDNumber: '456780',
+    tags: 'tag1',
     EMVTerminal: {
         name: 'Terminal',
         localIP: 'address',
         localPort: '20',
     },
-    bookingLabels: 'General',
-
-    notes:'Description'
-
-
-
-
-
 }
-
-
 
 D.inventory = {
     name: 'Inventory_' + D.randomNo,

@@ -87,8 +87,8 @@ export default class BasePage {
     }
 
     enterValue(el, text) {
-        el.waitForDisplayed();
-        el.waitForEnabled();
+       el.waitForDisplayed();
+       el.waitForEnabled();
         el.setValue(text);
         return this;
     }
