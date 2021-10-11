@@ -9,12 +9,10 @@ context('Sales Desks Page', () => {
         ui.menu.click_Users()
             .click_Sales_Desks()
         ui.salesDesks.click_create_desk_button()
-            .enter_values(D.sales_desks)
+            .enter_all_values(D.sales_desks)
+            .add_payment_method(D.sales_desks.paymentMethod)
             .click_confirm_create_desk_button()
             .verify_toast_message(C.toastMessages.salesDesks.deskAdded)
             .verify_all_values(D.sales_desks)
-
-
-
     })
 });

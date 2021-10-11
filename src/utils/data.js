@@ -135,11 +135,16 @@ D.user = {
 
 D.sales_desks = {
     nameDesks:'tEST123',
-    deskLocation: 'Sarajevo - Gladno Polje 889',
-    deskProvider: '4324 (8551)',
-    IdNum: '18',
+    deskLocation: 'Sarajevo - Gladno Polje',
+    deskProvider: '4324',
+    idNum: '18',
     tagsDesks: 'test4',
-    methodObject: 'credit card'
+    paymentMethod:{
+        type: 'EMV',
+        name: 'emv_name',
+        ip: 'test_ip',
+        port: '22',
+    }
 }
 
 D.getNewUserData = function () {
