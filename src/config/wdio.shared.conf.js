@@ -17,14 +17,15 @@ exports.config = {
         // './src/specs/add-gift-card-spec.js',
         // './src/specs/add-contact-spec.js',
         // './src/specs/add-service-provider-spec.js',
-         './src/specs/*spec.js',
+         './src/specs/add-sales-desk-spec.js',
+         //'./src/specs/*spec.js',
     ],
 
     exclude: [
 
     ],
     maxInstances: 1,
-    logLevel: 'error',
+    logLevel: 'trace',
     bail: 0,
     baseUrl: 'https://supplier.rezgo.com/',
     waitforTimeout: 20000,

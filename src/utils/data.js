@@ -144,4 +144,20 @@ D.getNewUserData = function () {
     }
 }
 
+
+D.salesDesk = {
+    name: 'Desk_' + D.randomNo,
+    location: 'Sarajevo - Gladno Polje',
+    provider: 'Automation Test',
+    tags: 'tag' + D.randomNo,
+    id: 'ID_' + D.randomNo,
+}
+
+D.emvTerminal = {
+    name: 'Terminal_' + D.randomNo,
+    localIp: 'IP' + D.randomNo,
+    localPort: 'port' + D.randomNo,
+}
+
+
 module.exports = D;

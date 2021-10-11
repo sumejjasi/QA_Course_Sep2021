@@ -6,6 +6,7 @@ let
     userProfileImage = e => browser.$('#user_avatar'),
     logout = e => browser.$('[href="/logout"]'),
     usersLink = e => browser.$('[href="/users/"]'),
+    salesDesks = e => browser.$('[href="/desks/"]'),
     giftCardLink = e => browser.$('[href="/cards/"]'),
     inventoryLink = e => browser.$('[href="/inventory/"]'),
     contactsLink = e => browser.$('[href="/contacts/"]'),
@@ -33,6 +34,11 @@ export default class Menu extends BasePage {
 
     click_Users() {
         usersLink().click();
+        return this;
+    }
+
+    click_Sales_Desks() {
+        salesDesks().click();
         return this;
     }
 
