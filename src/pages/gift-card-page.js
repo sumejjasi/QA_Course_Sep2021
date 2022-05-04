@@ -6,7 +6,7 @@ const D = require('../utils/data');
 let
     createGiftCardButton = e => browser.$('#add_button'),
     numberInput = e => browser.$('#card'),
-    saveCreateGiftCard = e => browser.$('.save_button'),
+    saveCreateGiftCard = e => browser.$('//span[text()="Create Gift Card"]'),
     firstName_topSection = e => browser.$('#first_name'),
     firstName_billingSection = e => browser.$('[name="billing_first_name"]'),
     lastName_topSection = e => browser.$('#last_name'),
@@ -22,6 +22,7 @@ let
     cardValueInput = e => browser.$('[placeholder="Lek"]'),
     maxUsesInput = e => browser.$('[placeholder="Max Uses"]'),
     expiresInput = e => browser.$('[placeholder="Never Expires"]')
+
 
 // add comma at the end of the previous line before adding new element selectors
 
@@ -69,6 +70,7 @@ export default class GiftCardPage extends BasePage {
         this.enterValue(maxUsesInput(), giftCardObject.cardDetails.maxUses)
         this.enterValue(expiresInput(), giftCardObject.cardDetails.expires)
 
+
         return this;
     }
 
@@ -79,6 +81,8 @@ export default class GiftCardPage extends BasePage {
     }
 
     click_confirm_Button() {
+        saveCreateGiftCard().waitForDisplayed()
+        saveCreateGiftCard().waitForClickable()
         saveCreateGiftCard().click();
         return this;
     }

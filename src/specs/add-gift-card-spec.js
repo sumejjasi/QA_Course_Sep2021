@@ -32,6 +32,5 @@ context('Gift Card tests', () => {
             .verify_toast_message(C.toastMessages.giftCard.cardAdded)
         ui.giftCardDetails.send_gift_card()
             .verify_toast_message(C.toastMessages.giftCard.cardSent)
-            .verify_email(D.gmailAccount, C.emailTemplates.giftCardCreated)
     })
 });

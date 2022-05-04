@@ -12,7 +12,8 @@ let
     tagsInput = e => browser.$$('[placeholder="Enter tags ..."]')[1],
     createUserConfirm = e => browser.$('.save_button'),
     groupButton = e => browser.$('#access_button'),
-    useThisGroupButton = e => browser.$('#set_level_button')
+    useThisGroupButton = e => browser.$('#set_level_button'),
+    productManager = e => browser.$('#Product+Manager')
 // add comma at the end of the previous line before adding new element selectors
 
 export default class UsersPage extends BasePage {
@@ -34,7 +35,7 @@ export default class UsersPage extends BasePage {
     }
 
     enter_email() {
-        this.enterValue(emailInputField(), 'fjhsdh')
+        this.enterValue(emailInputField(), 'sffbeganovic@gmail.com')
         return this;
     }
 
@@ -46,6 +47,7 @@ export default class UsersPage extends BasePage {
         browser.switchToParentFrame();
         return this;
     }
+
 
     enter_all_values(object) {
         this.enterValue(emailInputField(), object.email)

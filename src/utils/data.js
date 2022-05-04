@@ -25,10 +25,16 @@ D.gmailAccount = {
 D.unreadEmails = []
 
 D.users = {
+    // admin: {
+    //     username: 'sumejja.s.i@gmail.com',
+    //     password: 'test1234'
+    // },
+
     admin: {
-        username: 'sumejja.s.i@gmail.com',
-        password: 'test1234'
+        username: 'sffbeganovic@gmail.com',
+        password: '10352524'
     },
+
     regularUser: {
         username: 'mediha@gmail.com',
         password: 'test1234'
@@ -85,9 +91,10 @@ D.serviceProvider = {
 
 D.giftCard = {
     number: format(D.randomNo, '###-####-####'),
-    firstName: 'Test First Name',
-    lastName: 'Test Last Name',
-    email: 'protractor.user2@gmail.com',
+    firstName: 'Suriza',
+    lastName: 'Beganovic',
+    //email: 'protractor.user2@gmail.com',
+    email: 'sffbeganovic@gmail.com',
     billingSection: {
         firstName: 'Billing First Name',
         lastName: 'Billing Last Name',
@@ -98,7 +105,7 @@ D.giftCard = {
         country: 'Bosnia',
         postal: '71000',
         phone: '000/333/444',
-        email: 'sumejja.s.i@gmai.com',
+        email: 'sffbeganovic@gmai.com',
     },
     cardDetails: {
         cardValue: '333',
@@ -124,13 +131,22 @@ D.contact = {
     }
 }
 
+// D.user = {
+//     email: 'protractor.user2+' + D.randomNo + '@gmail.com',
+//     username: D.getRandomNo(),
+//     firstName: 'test firstName',
+//     lastName: 'test lastName',
+//     tag: 'test tag',
+//     groupName: 'Site Administrator',
+// }
+
 D.user = {
-    email: 'protractor.user2+' + D.randomNo + '@gmail.com',
-    username: D.getRandomNo(),
+    email: 'sffbeganovic' + D.randomNo + '@gmail.com',
+    username: 'suriza' + D.getRandomNo(),
     firstName: 'test firstName',
     lastName: 'test lastName',
     tag: 'test tag',
-    groupName: 'Site Administrator',
+    groupName: 'Product Manager',
 }
 
 

@@ -4,9 +4,13 @@ const D = require('../utils/data');
 
 context('Users page', () => {
 
-    beforeEach(function () {
-        ui.app.markAllEmailsAsRead(D.gmailAccount)
-    })
+    // beforeEach(function () {
+    //     ui.app.markAllEmailsAsRead(D.gmailAccount)
+    // })
+
+    // beforeEach(() => {
+    //     ui.app.markAllEmailsAsRead(D.gmailAccount)
+    // })
 
     it('Verify that new user can be added with required value', () => {
         ui.login.login_as(D.users.admin)
@@ -17,7 +21,7 @@ context('Users page', () => {
             .verify_toast_message(C.toastMessages.users.userAdded)
     })
 
-    it.only('Verify that new user can be added with all values - Site Administrator', () => {
+    it('Verify that new user can be added with all values - Site Administrator', () => {
         let visibleMenuOptions = ['Dashboard', 'Bookings', 'Inventory', 'Gift Cards', 'Settings']
         let invisibleMenuOptions = []
 

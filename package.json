@@ -34,7 +34,7 @@
     "@wdio/sync": "7.0.0",
     "allure-commandline": "^2.13.0",
     "del-cli": "3.0.1",
-    "chromedriver": "^93.0.1",
+    "chromedriver": "99.0.0",
     "geckodriver": "^1.22.2",
     "wdio-geckodriver-service": "1.1.2",
     "imap-simple": "^5.0.0",

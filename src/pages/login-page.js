@@ -45,6 +45,7 @@ export default class LoginPage extends BasePage {
        this.navigate_to_login_page()
            .enter_credentials(object)
            .click_Login_button()
+           .click_Login_button()
         return this;
     }
 }
